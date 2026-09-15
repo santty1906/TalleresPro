@@ -1,4 +1,4 @@
-# IA_e_Autoria — Fase 1
+# Autoria — Fase 1
 
 | Sección del documento | Integrante(s) | Herramienta y link al prompt utilizado | Aporte de la IA | Aporte intelectual del equipo |
 | --------------------- | ------------- | -------------------------------------- | --------------- | ----------------------------- |
