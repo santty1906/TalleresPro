@@ -1,0 +1,190 @@
+@startuml TalleresPro - Modelo de clases (Fase 1)
+' ============================================================
+' TalleresPro - Fase 1, Deliverable 7: Modelo de clases
+' Fuente normativa del diagrama UML de clases.
+' Formato: PlantUML. Ver "Fase 1/README_Fase_1.md", sección 7.
+' Cómo visualizar: abrir este archivo con la extensión PlantUML
+' de VS Code, o pegarlo en https://www.plantuml.com/plantuml/uml/
+' No se incluye imagen generada; este archivo .puml es la fuente.
+' El diccionario completo de atributos y restricciones está en
+' la sección 7 del documento; el diagrama muestra solo lo
+' esencial para mantener la legibilidad.
+' ============================================================
+
+skinparam class {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam package {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+package "Usuarios" {
+  class Rol {
+    +id : int <<PK>>
+    +nombre : string
+    +permisos : string
+  }
+  class Usuario {
+    +id : int <<PK>>
+    +nombre : string
+    +correo : string <<UQ>>
+    +contrasenaHash : string
+    +activo : bool
+  }
+}
+
+package "Clientes y vehículos" {
+  class Cliente {
+    +id : int <<PK>>
+    +nombre : string
+    +documento : string
+    +telefono : string
+    +correo : string
+    +activo : bool
+  }
+  class Vehiculo {
+    +id : int <<PK>>
+    +placa : string <<UQ>>
+    +marca : string
+    +modelo : string
+    +anio : int
+  }
+}
+
+package "Taller" {
+  class Servicio {
+    +id : int <<PK>>
+    +nombre : string <<UQ>>
+    +descripcion : string
+    +precio : decimal
+  }
+  class OrdenReparacion {
+    +id : int <<PK>>
+    +fechaIngreso : date
+    +problemaReportado : string
+    +diagnostico : string
+    +estado : string
+    +total : decimal <<derivado>>
+  }
+  class DetalleOrden {
+    +id : int <<PK>>
+    +cantidad : int
+    +precioUnitario : decimal
+  }
+  class Tarea {
+    +id : int <<PK>>
+    +descripcion : string
+    +estado : string
+  }
+  class Cita {
+    +id : int <<PK>>
+    +fechaHora : datetime
+    +estado : string
+  }
+}
+
+package "Inventario" {
+  class Producto {
+    +id : int <<PK>>
+    +nombre : string <<UQ>>
+    +stock : int
+    +stockMinimo : int
+    +activo : bool
+  }
+  class MovimientoInventario {
+    +id : int <<PK>>
+    +tipo : string
+    +cantidad : int
+    +fecha : datetime
+  }
+}
+
+package "Finanzas" {
+  class Pago {
+    +id : int <<PK>>
+    +fecha : datetime
+    +monto : decimal
+    +metodoPago : string
+  }
+  class Ingreso {
+    +id : int <<PK>>
+    +concepto : string
+    +monto : decimal
+    +fecha : date
+  }
+  class Gasto {
+    +id : int <<PK>>
+    +concepto : string
+    +monto : decimal
+    +fecha : date
+  }
+  class FacturaInterna {
+    +id : int <<PK>>
+    +consecutivo : string <<UQ>>
+    +fecha : datetime
+    +total : decimal
+  }
+}
+
+' ---- Relaciones ----
+' Usuarios: cada usuario tiene exactamente un rol (RF-01/RF-03, CU-02).
+Rol "1" -- "*" Usuario : asigna >
+
+' Clientes y vehículos (RF-09 a RF-12, CU-03/CU-04).
+Cliente "1" -- "*" Vehiculo : posee >
+
+' Orden: referencia a su cliente y a su vehículo (RF-14, CU-07).
+' Invariante documentado en §7.6: el vehículo de la orden debe
+' pertenecer al cliente de la orden (por confirmar, ver §7.8).
+Cliente "1" -- "0..*" OrdenReparacion : solicita >
+Vehiculo "1" -- "0..*" OrdenReparacion : ingresa_por >
+
+' Servicios de la orden mediante línea de detalle (CU-07).
+' Composición: el detalle no tiene sentido sin su orden.
+OrdenReparacion "1" *-- "*" DetalleOrden : contiene >
+Servicio "1" -- "*" DetalleOrden : facturado_en >
+
+' Tareas de la reparación (RF-16, CU-08).
+' Composición: la tarea pertenece a una sola orden.
+OrdenReparacion "1" *-- "*" Tarea : descompone_en >
+
+' Citas (RF-26 a RF-28, CU-06). El servicio es opcional.
+Cliente "1" -- "0..*" Cita : agenda >
+Vehiculo "1" -- "0..*" Cita : programa_para >
+Servicio "1" -- "0..*" Cita : incluye_opcional >
+
+' Inventario (RF-19 a RF-23, CU-09/CU-10).
+' Asociación simple (no composición): los movimientos son
+' histórico y no se eliminan con el producto.
+Producto "1" -- "*" MovimientoInventario : registra >
+' Salida opcionalmente asociada a una orden (Escenario 5).
+OrdenReparacion "1" -- "0..*" MovimientoInventario : consume_en_salida >
+
+' Finanzas de la orden (RF-29/RF-30/RF-33, CU-11/CU-13).
+OrdenReparacion "1" -- "*" Pago : salda_con >
+' Como máximo una factura interna por orden (supuesto por
+' confirmar, ver §7.8).
+OrdenReparacion "1" -- "0..1" FacturaInterna : factura >
+
+note bottom of FacturaInterna
+  Decisiones de modelado (ver §7.7 y §7.8):
+  - Reportes (CU-14) y dashboard (CU-15) son
+    vistas derivadas, no clases.
+  - Actores, páginas UI e infraestructura no
+    son clases de dominio.
+  - Ingreso y Gasto son clases separadas
+    (RF-31/RF-32); no se unifican.
+  - FacturaInterna no lleva ítems propios:
+    el detalle se deriva de la orden.
+  - Saldo de la orden y total son derivados:
+    total - suma(Pagos).
+  - Composición solo en DetalleOrden y Tarea
+    (dependencia de ciclo de vida de la orden).
+end note
+
+@enduml

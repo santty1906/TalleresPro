@@ -1,0 +1,112 @@
+@startuml TalleresPro - Diagrama de casos de uso (Fase 1)
+' ============================================================
+' TalleresPro - Fase 1, Deliverable 6: Casos de uso
+' Fuente normativa del diagrama UML de casos de uso.
+' Formato: PlantUML. Ver "Fase 1/README_Fase_1.md", sección 6.
+' Cómo visualizar: abrir este archivo con la extensión PlantUML
+' de VS Code, o pegarlo en https://www.plantuml.com/plantuml/uml/
+' No se incluye imagen generada; este archivo .puml es la fuente.
+' ============================================================
+
+left to right direction
+skinparam usecase {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam actor {
+  BorderColor black
+}
+skinparam rectangle {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+actor "Administrador" as Admin
+actor "Recepcionista" as Recep
+actor "Técnico" as Tec
+actor "Encargado de\ninventario" as Inv
+actor "Encargado\nadministrativo" as Admvo
+
+rectangle "TalleresPro" {
+  usecase "CU-01\nIniciar sesión" as CU01
+  usecase "CU-02\nGestionar usuarios\ny roles" as CU02
+  usecase "CU-03\nGestionar clientes" as CU03
+  usecase "CU-04\nGestionar vehículos\ny consultar historial" as CU04
+  usecase "CU-05\nGestionar catálogo\nde servicios" as CU05
+  usecase "CU-06\nGestionar citas" as CU06
+  usecase "CU-07\nCrear orden\nde reparación" as CU07
+  usecase "CU-08\nActualizar reparación\n(diagnóstico, tareas,\nestados y consulta)" as CU08
+  usecase "CU-09\nGestionar repuestos" as CU09
+  usecase "CU-10\nRegistrar movimientos\ny controlar stock" as CU10
+  usecase "CU-11\nRegistrar cobro\nde orden" as CU11
+  usecase "CU-12\nRegistrar ingresos\ny gastos" as CU12
+  usecase "CU-13\nGenerar factura\ninterna" as CU13
+  usecase "CU-14\nGenerar reportes" as CU14
+  usecase "CU-15\nConsultar dashboard" as CU15
+}
+
+' ---- Asociaciones actor primario -> caso de uso ----
+' CU-01 es usado por los cinco roles (autenticación común).
+Admin --> CU01
+Recep --> CU01
+Tec --> CU01
+Inv --> CU01
+Admvo --> CU01
+
+' Administracion y configuracion
+Admin --> CU02
+Admin --> CU05
+Admin --> CU14
+Admin --> CU15
+
+' Atencion al cliente y taller
+Recep --> CU03
+Recep --> CU04
+Recep --> CU06
+Recep --> CU07
+
+' El técnico actualiza; recepcionista y administrador solo consultan
+' (ver descripcion de CU-08). Por legibilidad se muestran ambas
+' asociaciones; el rol de consulta se aclara en el texto.
+Tec --> CU08
+Recep --> CU08
+
+' Inventario
+Inv --> CU09
+Inv --> CU10
+
+' Finanzas
+Admvo --> CU11
+Admvo --> CU12
+Admvo --> CU13
+Admvo --> CU14
+
+' ---- Relaciones include / extend ----
+' Unica relacion estereotipada del modelo. CU-13 es opcional y solo
+' puede ocurrir a partir de un cobro registrado (CU-11).
+CU13 .> CU11 : <<extend>>
+
+note bottom of CU13
+  Decisiones de modelado:
+  - Inicio de sesión (CU-01) se modela
+    como precondición, no como <<include>>,
+    para no saturar el diagrama con 14
+    dependencias repetidas.
+  - No se usa <<include>> en ningún caso;
+    no hay un subflujo comun obligatorio
+    extraido como caso de uso aparte.
+  - Unico <<extend>>: CU-13 extiende CU-11
+    (factura opcional tras el cobro).
+  - El Administrador tiene acceso a todo el
+    sistema (ver sección 2); por legibilidad
+    solo se dibujan sus asociaciones
+    principales (CU-01, CU-02, CU-05,
+    CU-14, CU-15).
+  - El Cliente es entidad gestionada, no actor
+    autenticado (ver sección 6.1).
+end note
+
+@enduml

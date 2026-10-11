@@ -1,0 +1,180 @@
+@startuml TalleresPro - Modelo de navegacion inicial (Fase 1)
+' ============================================================
+' TalleresPro - Fase 1, Deliverable 8: Modelo de navegación inicial
+' Fuente normativa del diagrama de navegación.
+' Formato: PlantUML. Ver "Fase 1/README_Fase_1.md", sección 8.
+' Cómo leerlo:
+'  - Flecha continua (-->) = navegación entre vistas.
+'  - Flecha punteada (..>) = acceso de un rol a un área.
+'  - [*] = punto de partida (no autenticado).
+' Cómo visualizar: abrir este archivo con la extensión PlantUML
+' de VS Code, o pegarlo en https://www.plantuml.com/plantuml/uml/
+' No se incluye imagen generada; este archivo .puml es la fuente.
+' El detalle de vistas, matriz rol-vista y flujos está en la
+' sección 8 del documento; el diagrama muestra solo la
+' estructura principal para mantener la legibilidad.
+' ============================================================
+
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam package {
+  BorderColor black
+}
+skinparam actor {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+left to right direction
+
+' ---- Actores (solo accesos principales; ver matriz §8.4) ----
+actor "Administrador" as Admin
+actor "Recepcionista" as Recep
+actor "Técnico" as Tec
+actor "Encargado de\ninventario" as Inv
+actor "Encargado\nadministrativo" as Admvo
+
+' ---- Entrada ----
+[*] --> Login
+rectangle "V-01\nLogin" as Login
+rectangle "V-02\nDashboard" as Dash
+
+Login --> Dash : CU-01 éxito >
+
+' ---- Módulos principales ----
+package "V-03 Usuarios" {
+  rectangle "V-03a\nLista de usuarios" as U_L
+  rectangle "V-03b\nFormulario usuario\n+ rol" as U_F
+}
+package "V-04 Clientes" {
+  rectangle "V-04a\nLista / buscar" as C_L
+  rectangle "V-04b\nFormulario cliente" as C_F
+  rectangle "V-04c\nDetalle cliente" as C_D
+}
+package "V-05 Vehículos" {
+  rectangle "V-05a\nLista / buscar" as V_L
+  rectangle "V-05b\nFormulario vehículo" as V_F
+  rectangle "V-05c\nDetalle + historial" as V_D
+}
+package "V-06 Servicios" {
+  rectangle "V-06a\nCatálogo" as S_L
+  rectangle "V-06b\nFormulario servicio" as S_F
+}
+package "V-07 Citas" {
+  rectangle "V-07a\nAgenda" as A_L
+  rectangle "V-07b\nFormulario cita" as A_F
+}
+package "V-08 Órdenes" {
+  rectangle "V-08a\nLista / buscar" as O_L
+  rectangle "V-08b\nCrear orden" as O_C
+  rectangle "V-08c\nDetalle de orden\n(diagnóstico, tareas,\nestados)" as O_D
+}
+package "V-09 Inventario" {
+  rectangle "V-09a\nLista de productos" as P_L
+  rectangle "V-09b\nFormulario producto" as P_F
+  rectangle "V-09c\nRegistrar movimiento\n(entrada / salida)" as M_F
+  rectangle "V-09d\nAviso stock bajo\n<<derivada>>" as Stock
+}
+package "V-10 Finanzas" {
+  rectangle "V-10a\nCobrar orden\n(saldo + pagos)" as F_C
+  rectangle "V-10b\nIngresos y gastos" as F_IG
+  rectangle "V-10c\nFactura interna\n(generar / ver)" as F_F
+}
+package "V-11 Reportes" {
+  rectangle "V-11a\nSelector\n(reparaciones /\ninventario / financiero)" as R_S
+  rectangle "V-11b\nResultado" as R_R
+}
+
+' ---- Navegación desde el dashboard ----
+Dash --> U_L
+Dash --> C_L
+Dash --> V_L
+Dash --> S_L
+Dash --> A_L
+Dash --> O_L
+Dash --> P_L
+Dash --> F_IG
+Dash --> R_S
+' Atajos de detalle (CU-15 A1: del indicador al módulo).
+Dash ..> O_L : drill-down >
+Dash ..> A_L : drill-down >
+Dash ..> P_L : drill-down >
+
+' ---- Navegación interna por módulo ----
+U_L --> U_F : nuevo / editar >
+C_L --> C_F : nuevo >
+C_L --> C_D : ver >
+C_D --> C_F : editar >
+V_L --> V_F : nuevo >
+V_L --> V_D : ver >
+V_D --> V_F : editar >
+S_L --> S_F : nuevo / editar >
+A_L --> A_F : agendar / editar >
+O_L --> O_C : nueva >
+O_L --> O_D : ver >
+P_L --> P_F : nuevo / editar >
+P_L --> M_F : entrada / salida >
+M_F --> Stock : stock<=mínimo >
+R_S --> R_R : generar >
+
+' ---- Navegación cruzada (entre módulos) ----
+' Cliente -> vehículo (CU-04 empieza desde el cliente).
+C_D --> V_F : agregar vehículo >
+' Vehículo -> orden e historial (CU-07, RF-12).
+V_D --> O_C : crear orden >
+' Cita -> orden (CU-07 A1: precarga cliente/vehículo/servicio).
+A_L --> O_C : crear orden\ndesde cita >
+' Orden -> cobro -> factura (CU-11, CU-13 extend).
+O_D --> F_C : cobrar >
+F_C --> F_F : facturar >
+' Orden -> salida de inventario (CU-10 A1: salida asociada).
+O_D --> M_F : salida asociada >
+' Dashboard usa datos de órdenes/citas/inventario/finanzas.
+O_D ..> Dash : alimenta >
+A_L ..> Dash : alimenta >
+Stock ..> Dash : alimenta >
+F_IG ..> Dash : alimenta >
+
+' ---- Accesos principales por rol (punteado; detalle en §8.4) ----
+' Todos se autentican (CU-01).
+Admin ..> Login
+Recep ..> Login
+Tec ..> Login
+Inv ..> Login
+Admvo ..> Login
+' Primarios por área.
+Admin ..> U_L
+Admin ..> S_L
+Admin ..> Dash
+Admin ..> R_S
+Recep ..> C_L
+Recep ..> V_L
+Recep ..> A_L
+Recep ..> O_L
+Tec ..> O_D
+Inv ..> P_L
+Inv ..> M_F
+Admvo ..> F_C
+Admvo ..> F_IG
+Admvo ..> F_F
+Admvo ..> R_S
+' Consultas secundarias documentadas en §8.4
+' (Recep/Admin consultan O_D; Admvo/Inv consultan O_L;
+' Admin consulta inventario/finanzas). No se dibujan para
+' no saturar; ver matriz.
+
+note bottom of F_F
+  Decisiones (ver §8.7):
+  - V-02 completo solo Admin (CU-15);
+    el resto parte de sus módulos.
+  - V-06 gestión solo Admin propuesto;
+    Recep solo usa el catálogo.
+  - Stock (V-09d) es aviso derivado,
+    no formulario.
+  - Sin portal de cliente.
+end note
+
+@enduml
