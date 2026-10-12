@@ -1,0 +1,92 @@
+@startuml TalleresPro - Flujos FL-05 a FL-07 (operacion)
+' ============================================================
+' TalleresPro - Fase 2, Deliverable 4: FL-05, FL-06, FL-07.
+' Detalle visual de flujos_navegacion.md (mismos pasos, actores,
+' decisiones, alternos y errores; sin CU ni reglas nuevas).
+' Ver tambien: flujos_navegacion.puml (FL-01 + indice),
+' flujos_atencion.puml (FL-02..FL-04),
+' flujos_gestion.puml (FL-08, FL-09 + secundarios).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam partition {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+title TalleresPro Fase 2 - Flujos de operacion (FL-05, FL-06, FL-07)
+
+partition "FL-05 Reparacion (Tec. edita; Recep/Admin solo leen | CU-08, RF-16-18, Esc-4)" {
+  start
+  :V-08a: filtrar asignadas\no buscar;
+  :V-08c: diagnostico (RF-16)\n+ tareas + estado (RF-17);
+  if (Transicion valida?\nCierre con diagnostico? [P]) then (no)
+    :E2: valida e informa;
+    stop
+  else (si)
+    :Guardar: "orden actualizada"\n(A2: incremental);
+  endif
+  :[Cobrar] -> FL-07 o\n[Salida asociada] -> FL-06;
+  note right
+    A1: Recep/Admin solo
+    consulta (E3 sin permiso:
+    solo lectura)
+    E1: orden inexistente
+  end note
+  stop
+}
+
+partition "FL-06 Movimiento stock (Inventario; Admin lee | CU-09/10, RF-19-23, Esc-5)" {
+  start
+  :V-09a o V-08c\n(orden precargada si asociada);
+  :V-09c: cantidad +\norden opcional -> [Confirmar];
+  if (Cantidad > 0 y\nstock suficiente?) then (no)
+    :E1/E2: rechaza,\nno descuenta;
+    stop
+  else (si)
+    :Actualiza stock automatico\n(R1, RF-22);
+  endif
+  if (Stock <= minimo?) then (si)
+    :V-09d aviso + insignias\n(R3, RF-23);
+  else (no)
+  endif
+  note right
+    A1: salida general o asociada
+    A2: entrada por compra/ajuste
+    E3: producto inexistente
+  end note
+  stop
+}
+
+partition "FL-07 Cobro y factura (Admvo.; Admin lee | CU-11/13, RF-29/30/33, Esc-6)" {
+  start
+  :V-08c -> [Cobrar]\n-> V-10a (total + saldo R4);
+  :Monto + metodo\n-> [Confirmar pago];
+  if (Monto > 0 y metodo elegido?) then (no)
+    :E3 o monto invalido:\nindica que completar;
+    stop
+  elseif (Monto > saldo?) then (si)
+    :E1 sobrepago [P]:\npropone rechazar;
+    stop
+  else (ok)
+  endif
+  :Registra pago,\nrecalcula saldo\n(A1 parcial / A2 total);
+  if (Generar factura?) then (si)
+    :V-10c: exige cobro (E1 CU-13)\nconsecutivo unico;
+  else (no)
+  endif
+  note right
+    Interna simple; sin bancos ni
+    facturacion gubernamental
+    (fuera de alcance, 1.5)
+  end note
+  stop
+}
+
+@enduml

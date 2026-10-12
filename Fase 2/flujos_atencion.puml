@@ -1,0 +1,86 @@
+@startuml TalleresPro - Flujos FL-02 a FL-04 (atencion)
+' ============================================================
+' TalleresPro - Fase 2, Deliverable 4: FL-02, FL-03, FL-04.
+' Detalle visual de flujos_navegacion.md (mismos pasos, actores,
+' decisiones, alternos y errores; sin CU ni reglas nuevas).
+' Ver tambien: flujos_navegacion.puml (FL-01 + indice),
+' flujos_operacion.puml (FL-05..FL-07),
+' flujos_gestion.puml (FL-08, FL-09 + secundarios).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam partition {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+title TalleresPro Fase 2 - Flujos de atencion (FL-02, FL-03, FL-04)
+
+partition "FL-02 Cliente (Recep. + Admin consulta | CU-03, RF-05-08, Esc-1)" {
+  start
+  :V-04a Lista: buscar (RF-06)\no [Registrar cliente];
+  :V-04b Formulario: datos -> [Guardar];
+  if (Datos validos? RNF-11) then (no)
+    :E1 faltantes o invalidos, o\nE2 duplicado [P]:\npermanece con mensaje;
+    stop
+  else (si)
+    :V-04c Detalle:\n"Cliente guardado";
+  endif
+  if (Desactivar? RF-08) then (si)
+    :Dialogo de confirmacion\n(no borra; E3 con ordenes\nactivas [P]);
+  else (no)
+  endif
+  :[Agregar vehiculo] -> FL-03;
+  stop
+}
+
+partition "FL-03 Vehiculo (Recep. + Admin consulta | CU-04, RF-09-12, Esc-2)" {
+  start
+  :V-04c o V-05a:\nelegir cliente;
+  if (Cliente activo?) then (no)
+    :E2: no permite vincular;
+    stop
+  else (si)
+    :V-05b Formulario:\nmarca, modelo, ano, placa;
+  endif
+  if (Placa unica y valida? [P]) then (no)
+    :E1: rechaza e indica;
+    stop
+  else (si)
+    :V-05c Detalle + historial (RF-12);
+  endif
+  if (Historial vacio?) then (si)
+    :Mensaje "sin reparaciones" (A2);
+  else (no)
+  endif
+  :[Crear orden] -> FL-04;
+  stop
+}
+
+partition "FL-04 Crear orden (Recep. | CU-07, RF-13-15, Esc-3)" {
+  start
+  :Origen: V-05c, V-07a\n(precarga A1) o V-08a;
+  :V-08b: cliente + vehiculo\n+ problema* + servicios;
+  if (Cliente y vehiculo existen\ny coherentes? R6 [P]) then (no)
+    :E1: no crea la orden;
+    stop
+  elseif (Problema vacio?) then (si)
+    :E2: indica que completar;
+    stop
+  else (ok)
+  endif
+  :V-08c Detalle en "Recibido";
+  note right
+    A2: sin servicios todavia
+    (quedan para FL-05)
+  end note
+  stop
+}
+
+@enduml

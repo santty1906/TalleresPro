@@ -1,0 +1,158 @@
+@startuml TalleresPro - Sitemap Fase 2
+' ============================================================
+' TalleresPro - Fase 2, Deliverable 2: Sitemap
+' Fuente normativa del mapa del sitio.
+' Base: Fase 1 §8.3 (V-01..V-11 + subvistas), §8.4 (rol-vista),
+' matriz B1/E. No crea paginas nuevas fuera de §8.3 salvo las
+' tecnicas 403/404 marcadas <<tecnica>> (propuesta RNF-05).
+' Etiquetas identicas a arquitectura_informacion.md, wireframes.md
+' y prototipo/. Leyenda al final.
+' Como visualizar: extension PlantUML de VS Code o
+' https://www.plantuml.com/plantuml/uml/
+' No se incluye imagen generada; este .puml es la fuente.
+' ============================================================
+
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam package {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+title TalleresPro Fase 2 - Sitemap (paginas = rectangulos; acciones/dialogos = notas)
+
+' ---- Entrada ----
+rectangle "INICIO\n(no autenticado)\n[*]" as Inicio
+rectangle "V-01\nLogin\n(correo + contrasena)" as V01
+
+Inicio --> V01
+
+' ---- Punto de partida segun rol (P-01 pendiente) ----
+rectangle "V-02\nDashboard\n(RF-37/38, solo Admin\nconfirmado)" as V02
+rectangle "Inicio por rol [P-01]\nRecep -> Clientes/Ordenes\nTec -> Ordenes\nInv -> Inventario\nAdmvo -> Finanzas\n(propuesta provisional)" as InicioRol
+
+V01 --> V02 : "CU-01 exito\n(Admin)"
+V01 --> InicioRol : "CU-01 exito\n(otros roles, P-01)"
+
+' ---- Gestion ----
+package "V-03 Usuarios\n(RF-01/03/04, solo Admin)" {
+  rectangle "V-03a\nLista de usuarios" as V03a
+  rectangle "V-03b\nFormulario usuario + rol\n(nuevo / editar)" as V03b
+}
+package "V-11 Reportes\n(RF-34–RF-36, Admin + Admvo)" {
+  rectangle "V-11a\nSelector\n(tipo + filtros + fecha)" as V11a
+  rectangle "V-11b\nResultado\n(visualizacion)" as V11b
+}
+
+' ---- Principal ----
+package "V-08 Ordenes\n(RF-13..18)" {
+  rectangle "V-08a\nLista / buscar" as V08a
+  rectangle "V-08b\nCrear orden\n(cliente+vehiculo+\nproblema+servicios)" as V08b
+  rectangle "V-08c\nDetalle de orden\n(diagnostico, tareas,\nestados)" as V08c
+}
+package "V-07 Citas\n(RF-26..28)" {
+  rectangle "V-07a\nAgenda\n(dia / filtros)" as V07a
+  rectangle "V-07b\nFormulario cita\n(agendar/editar/cancelar)" as V07b
+}
+
+' ---- Registros ----
+package "V-04 Clientes\n(RF-05..08)" {
+  rectangle "V-04a\nLista / buscar" as V04a
+  rectangle "V-04b\nFormulario cliente\n(nuevo / editar)" as V04b
+  rectangle "V-04c\nDetalle cliente\n(datos + vehiculos)" as V04c
+}
+package "V-05 Vehiculos\n(RF-09..12)" {
+  rectangle "V-05a\nLista / buscar" as V05a
+  rectangle "V-05b\nFormulario vehiculo\n(vinculado a cliente)" as V05b
+  rectangle "V-05c\nDetalle + historial\n(reparaciones)" as V05c
+}
+package "V-06 Servicios\n(RF-24/25)" {
+  rectangle "V-06a\nCatalogo\n(lista / buscar)" as V06a
+  rectangle "V-06b\nFormulario servicio\n(nombre+precio)" as V06b
+}
+
+' ---- Recursos ----
+package "V-09 Inventario\n(RF-19..23)" {
+  rectangle "V-09a\nLista de productos" as V09a
+  rectangle "V-09b\nFormulario producto\n(stock + minimo)" as V09b
+  rectangle "V-09c\nRegistrar movimiento\n(entrada / salida)" as V09c
+  rectangle "V-09d\nAviso stock bajo\n<<derivada>>" as V09d
+}
+package "V-10 Finanzas\n(RF-29..33)" {
+  rectangle "V-10a\nCobrar orden\n(total+saldo+monto)" as V10a
+  rectangle "V-10b\nIngresos y gastos\n(lista + registro)" as V10b
+  rectangle "V-10c\nFactura interna\n(generar / ver)" as V10c
+}
+
+' ---- Tecnicas (propuesta, no vistas de negocio) ----
+rectangle "403 Sin permiso\n<<tecnica>>" as E403
+rectangle "404 No encontrado\n<<tecnica>>" as E404
+
+' ---- Jerarquia: punto de partida -> modulos ----
+V02 --> V03a
+V02 --> V04a
+V02 --> V05a
+V02 --> V06a
+V02 --> V07a
+V02 --> V08a
+V02 --> V09a
+V02 --> V10b
+V02 --> V11a
+InicioRol --> V04a
+InicioRol --> V08a
+InicioRol --> V09a
+InicioRol --> V10b
+
+' ---- Jerarquia interna ----
+V03a --> V03b : "nuevo / editar"
+V04a --> V04b : "nuevo"
+V04a --> V04c : "ver"
+V04c --> V04b : "editar"
+V05a --> V05b : "nuevo"
+V05a --> V05c : "ver"
+V05c --> V05b : "editar"
+V06a --> V06b : "nuevo / editar"
+V07a --> V07b : "agendar / editar"
+V08a --> V08b : "nueva"
+V08a --> V08c : "ver"
+V09a --> V09b : "nuevo / editar"
+V09a --> V09c : "entrada / salida"
+V09c --> V09d : "stock <= minimo"
+V11a --> V11b : "generar"
+
+' ---- Cruzadas confirmadas (Fase 1 §8.5) ----
+V04c --> V05b : "agregar vehiculo"
+V05c --> V08b : "crear orden"
+V07a --> V08b : "crear orden\ndesde cita"
+V08c --> V10a : "cobrar"
+V10a --> V10c : "facturar"
+V08c --> V09c : "salida asociada"
+
+' ---- Drill-down Dashboard (CU-15 A1) ----
+V02 ..> V08a : "drill-down"
+V02 ..> V07a : "drill-down"
+V02 ..> V09a : "drill-down"
+V02 ..> V10b : "drill-down"
+
+note bottom of V10c
+  Leyenda:
+  - Rectangulo = pagina (navegable, con URL propia).
+  - Flecha continua = jerarquia o navegacion principal.
+  - Flecha punteada = drill-down / acceso indirecto.
+  - <<derivada>> = aviso calculado, no formulario (V-09d).
+  - <<tecnica>> = pagina de sistema propuesta (403/404),
+    no vista de negocio V-xx.
+  - Dialogos/acciones (Guardar, Confirmar desactivar,
+    Confirmar pago) NO son paginas: viven dentro de
+    su pagina y se documentan en wireframes.
+  - Etiquetas identicas en IA, navegacion, flujos,
+    wireframes y prototipo.
+  - P-01: punto de partida no-admin pendiente.
+    V-02 completo solo Admin confirmado (CU-15).
+end note
+
+@enduml

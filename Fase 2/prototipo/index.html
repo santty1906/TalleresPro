@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TalleresPro — Prototipo Fase 2 (Diseño, datos ficticios)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="demo-banner" role="note">
+  <strong>Prototipo Fase 2 — demostración de diseño.</strong>
+  Datos totalmente ficticios. Sin backend, sin autenticación real, nada persiste.
+  Corresponde a V-01…V-11 / WF-01…WF-13 (PT-01…PT-12). Pendientes P-01/P-02/P-03 etiquetados en pantalla.
+</div>
+
+<header class="topbar">
+  <button id="btnMenu" class="icon-btn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <span class="brand">TalleresPro</span>
+  <span class="crumbs" id="migas" aria-live="polite">Login</span>
+  <span class="spacer"></span>
+  <label class="role-label" for="selRol">Rol (demo):</label>
+  <select id="selRol" aria-label="Simular rol (control de demostración, sin autenticación real)">
+    <option value="admin">Administrador</option>
+    <option value="recep">Recepcionista</option>
+    <option value="tec">Técnico</option>
+    <option value="inv">Encargado de inventario</option>
+    <option value="admvo">Encargado administrativo</option>
+  </select>
+  <span id="usuarioDemo" class="user">Ana (Admin)</span>
+  <button class="btn ghost" data-go="login">Salir</button>
+</header>
+
+<div class="layout">
+<nav id="nav" class="sidenav" aria-label="Navegación principal">
+  <p class="nav-group">Principal</p>
+  <button data-go="dashboard" data-roles="admin" data-crumb="Dashboard › Resumen">Dashboard <small>V-02</small></button>
+  <button data-go="ordenes" data-roles="admin recep tec inv admvo" data-crumb="Órdenes › Lista">Órdenes <small>V-08</small></button>
+  <button data-go="citas" data-roles="admin recep" data-crumb="Citas › Agenda">Citas <small>V-07</small></button>
+  <p class="nav-group">Registros</p>
+  <button data-go="clientes" data-roles="admin recep" data-crumb="Clientes › Lista">Clientes <small>V-04</small></button>
+  <button data-go="vehiculos" data-roles="admin recep" data-crumb="Vehículos › Lista">Vehículos <small>V-05</small></button>
+  <button data-go="servicios" data-roles="admin recep" data-crumb="Servicios › Catálogo">Servicios <small>V-06</small></button>
+  <p class="nav-group">Recursos</p>
+  <button data-go="inventario" data-roles="admin inv" data-crumb="Inventario › Productos">Inventario <small>V-09</small></button>
+  <button data-go="finanzas" data-roles="admin admvo" data-crumb="Finanzas › Cobrar">Finanzas <small>V-10</small></button>
+  <p class="nav-group">Gestión</p>
+  <button data-go="reportes" data-roles="admin admvo" data-crumb="Reportes › Selector">Reportes <small>V-11</small></button>
+  <button data-go="usuarios" data-roles="admin" data-crumb="Usuarios › Lista">Usuarios <small>V-03</small></button>
+  <button data-go="login" data-roles="admin recep tec inv admvo" data-crumb="Login">Login <small>V-01</small></button>
+  <p class="pendiente">P-01: no-admin aterriza en su módulo (propuesta provisional).</p>
+  <p class="hint">El detalle de orden (V-08c) se alcanza desde la lista de órdenes o enlaces contextuales, no desde este menú.</p>
+</nav>
+
+<main id="contenido" class="content" tabindex="-1">
+
+<!-- PT-01 LOGIN -->
+<section id="pantalla-login" class="pantalla activa" aria-labelledby="t-login">
+  <h1 id="t-login">PT-01 · Iniciar sesión <small>(V-01 · WF-01 · RF-02/CU-01)</small></h1>
+  <div id="loginMsg" class="alert" role="alert" hidden></div>
+  <form id="formLogin" novalidate>
+    <!-- DEMO ONLY: credenciales ficticias del prototipo; jamás usar en producción. Sin backend ni autenticación real. -->
+    <label for="correo">Correo</label>
+    <input id="correo" name="correo" type="email" value="demo@taller.test" required autocomplete="username">
+    <label for="clave">Contraseña</label>
+    <input id="clave" name="clave" type="password" value="demo1234" required autocomplete="current-password">
+    <p class="hint">Demo: usa <b>demo@taller.test / demo1234</b> para “entrar”. Cualquier otro valor muestra el error RNF-02. Nada persiste.</p>
+    <button class="btn primary" type="submit">Ingresar</button>
+  </form>
+  <details class="estados"><summary>Estados (demo)</summary>
+    <button class="btn" data-demo="login-error">Simular credenciales inválidas</button>
+    <button class="btn" data-demo="login-vacio">Simular campos vacíos</button>
+  </details>
+</section>
+
+<!-- PT-02 DASHBOARD -->
+<section id="pantalla-dashboard" class="pantalla" aria-labelledby="t-dash">
+  <h1 id="t-dash">PT-02 · Dashboard <small>(V-02 · WF-02 · RF-37/38, CU-15, Esc-7)</small></h1>
+  <p class="solo-rol">Visible completo solo para <b>Administrador</b> (confirmado). Otros roles: <span class="tag">P-01 pendiente</span> — verían su módulo inicial.</p>
+  <div class="cards">
+    <button class="card" data-go="ordenes"><b>6</b><span>Trabajos pendientes</span><em>→ Órdenes V-08a</em></button>
+    <button class="card" data-go="citas"><b>4</b><span>Citas de hoy</span><em>→ Agenda V-07a</em></button>
+    <button class="card alerta-card" data-go="inventario"><b>3 ⚠</b><span>Poco stock</span><em>→ Inventario V-09a</em></button>
+    <button class="card" data-go="finanzas"><b>S/ 1 250</b><span>Cobrado hoy</span><em>→ Finanzas V-10</em></button>
+  </div>
+  <div id="dashError" class="alert warn" hidden>Un indicador no cargó (demo CU-15 E2). Los demás siguen visibles. <button class="btn" data-demo="dash-ok">Reintentar</button></div>
+  <details class="estados"><summary>Estados (demo)</summary>
+    <button class="btn" data-demo="dash-vacio">Simular sin datos</button>
+    <button class="btn" data-demo="dash-error">Simular error de indicador</button>
+  </details>
+</section>
+
+<!-- PT-03 CLIENTES -->
+<section id="pantalla-clientes" class="pantalla" aria-labelledby="t-cli">
+  <h1 id="t-cli">PT-03 · Clientes <small>(V-04 · WF-03/04/05 · RF-05–08, CU-03, Esc-1)</small></h1>
+  <p class="solo-rol">Gestión (registrar, editar, desactivar): solo <b>Recepcionista</b> ●. <b>Administrador</b> ◐: solo lectura.</p>
+  <div class="toolbar">
+    <label for="buscarCli">Buscar</label><input id="buscarCli" type="search" placeholder="Nombre o documento…">
+    <button class="btn" data-demo="cli-buscar">Buscar</button>
+    <button class="btn" data-demo="cli-limpiar">Limpiar</button>
+    <span class="spacer"></span>
+    <button class="btn primary" data-demo="cli-nuevo" data-solo="recep">Registrar cliente</button>
+  </div>
+  <div id="cliMsg" class="alert ok" role="status">Cliente “Rosa Pérez” guardado (demo, no persiste).</div>
+  <table>
+    <caption>Lista de clientes (ficticios)</caption>
+    <thead><tr><th>Nombre</th><th>Documento</th><th>Teléfono</th><th>Estado</th><th></th></tr></thead>
+    <tbody id="tablaCli">
+      <tr><td>Rosa Pérez</td><td>DNI 44881209</td><td>999 111 222</td><td>Activo</td><td><button class="btn" data-demo="cli-detalle">Ver</button></td></tr>
+      <tr><td>Juan Torres</td><td>DNI 09112233</td><td>999 333 444</td><td>Activo</td><td><button class="btn" data-demo="cli-detalle">Ver</button></td></tr>
+      <tr><td>Taller Amigo SAC</td><td>RUC 20123456789</td><td>01 555 0101</td><td>Inactivo</td><td><button class="btn" data-demo="cli-detalle">Ver</button></td></tr>
+    </tbody>
+  </table>
+  <p id="cliVacio" class="empty" hidden>Sin registros. <button class="btn" data-demo="cli-nuevo" data-solo="recep">Registrar cliente</button> <button class="btn" data-demo="cli-limpiar">Limpiar filtros</button></p>
+  <h2>Detalle CLI-001 (demo)</h2>
+  <p><b>Rosa Pérez</b> · DNI 44881209 · 999 111 222 · Activa</p>
+  <div class="row">
+    <button class="btn" data-demo="cli-editar" data-solo="recep">Editar</button>
+    <button class="btn danger" data-demo="cli-desactivar" data-solo="recep">Desactivar…</button>
+    <button class="btn" data-go="vehiculos" data-solo="recep">Agregar vehículo → V-05b</button>
+  </div>
+  <h2>Formulario (demo validación RNF-02/RNF-11)</h2>
+  <form id="formCli" novalidate>
+    <label for="cliNom">Nombre *</label><input id="cliNom" value="Rosa Pérez" required>
+    <label for="cliDoc">Documento</label><input id="cliDoc" value="DNI 44881209">
+    <label for="cliCor">Correo</label><input id="cliCor" type="email" value="no-es-correo" aria-describedby="eCliCor">
+    <p class="field-error" id="eCliCor">Formato inválido (demo). Corrige el correo.</p>
+    <div class="row"><button class="btn primary" type="submit" data-solo="recep">Guardar (demo)</button><button class="btn ghost" type="button" data-demo="cli-cancelar">Cancelar</button></div>
+  </form>
+</section>
+
+<!-- PT-04 VEHICULOS -->
+<section id="pantalla-vehiculos" class="pantalla" aria-labelledby="t-veh">
+  <h1 id="t-veh">PT-04 · Vehículos <small>(V-05 · WF-03/04 · RF-09–12, CU-04, Esc-2)</small></h1>
+  <p class="solo-rol">Gestión: solo <b>Recepcionista</b> ●. <b>Administrador</b> ◐: solo lectura. El Técnico consulta el historial vía la orden (CU-08).</p>
+  <h2>Vehículos (V-05a → V-05c)</h2>
+  <table><caption>Vehículos ficticios</caption>
+  <thead><tr><th>Placa</th><th>Marca/Modelo</th><th>Cliente</th><th></th></tr></thead>
+  <tbody><tr><td>ABC-123</td><td>Toyota Corolla 2019</td><td>Rosa Pérez</td><td><button class="btn" data-go="ordenes">Crear orden →</button></td></tr>
+  <tr><td>XYZ-789</td><td>Nissan Versa 2021</td><td>Juan Torres</td><td><button class="btn" data-demo="veh-historial">Ver historial</button></td></tr></tbody></table>
+  <p class="hint" id="vehHist">Historial ABC-123: ORD-001 (Listo), ORD-002 (En reparación). Vehículo sin órdenes: “Aún no tiene reparaciones” (CU-04 A2).</p>
+</section>
+
+<!-- PT-11 CITAS -->
+<section id="pantalla-citas" class="pantalla" aria-labelledby="t-cit">
+  <h1 id="t-cit">PT-11 · Citas <small>(V-07 · WF-10 · RF-26–28, CU-06)</small></h1>
+  <div class="toolbar">
+    <label for="citaFecha">Fecha</label><input id="citaFecha" type="date" value="2026-10-15">
+    <span class="spacer"></span>
+    <button class="btn primary" data-demo="cita-nueva">Agendar cita</button>
+  </div>
+  <h2>Agenda de hoy (V-07a)</h2>
+  <table><caption>Agenda ficticia 2026-10-15</caption>
+  <thead><tr><th>Hora</th><th>Cliente</th><th>Servicio</th><th>Estado</th><th></th></tr></thead>
+  <tbody><tr><td>09:00</td><td>Rosa Pérez</td><td>Afinamiento</td><td>Agendada</td><td><button class="btn" data-go="ordenes">Crear orden desde cita →</button></td></tr>
+  <tr><td>11:30</td><td>Juan Torres</td><td>Frenos</td><td>Agendada</td><td><button class="btn" data-demo="cita-cancelar">Cancelar…</button></td></tr></tbody></table>
+  <p class="pendiente">Traslapes, duración y servicio obligatorio/opcional: pendientes (CU-06 E1, §7.8 n.º 7).</p>
+</section>
+
+<!-- PT-05 ORDENES -->
+<section id="pantalla-ordenes" class="pantalla" aria-labelledby="t-ord">
+  <h1 id="t-ord">PT-05 · Órdenes <small>(V-08a/b · WF-06 · RF-13–15/18, CU-07, Esc-3)</small></h1>
+  <p class="solo-rol">Crear: <b>Recepcionista</b> ● (el Administrador conserva su acceso general ●). Consulta: todos los roles con ◐ ven la lista.</p>
+  <div class="toolbar"><label for="ordFiltro">Estado</label><select id="ordFiltro"><option>Todas</option><option>Recibido</option><option>En reparación</option><option>Listo</option></select>
+  <button class="btn primary" data-demo="ord-nueva" data-solo="admin recep">Nueva orden</button></div>
+  <table><caption>Órdenes ficticias</caption>
+  <thead><tr><th>Nro</th><th>Cliente</th><th>Vehículo</th><th>Estado</th><th>Saldo</th><th></th></tr></thead>
+  <tbody><tr><td>ORD-001</td><td>Rosa Pérez</td><td>ABC-123</td><td>En reparación</td><td>S/ 150</td><td><button class="btn" data-go="orden-detalle">Ver</button></td></tr>
+  <tr><td>ORD-002</td><td>Juan Torres</td><td>XYZ-789</td><td>Recibido</td><td>S/ 320</td><td><button class="btn" data-go="orden-detalle">Ver</button></td></tr></tbody></table>
+  <p class="hint">El detalle (V-08c) se abre con [Ver]; no forma parte del menú principal.</p>
+  <h2>Nueva orden (demo, desde vehículo/cita)</h2>
+  <form id="formOrd" novalidate>
+    <label for="ordCli">Cliente *</label><input id="ordCli" value="Rosa Pérez" required>
+    <label for="ordVeh">Vehículo *</label><input id="ordVeh" value="ABC-123" required>
+    <label for="ordProb">Problema informado *</label><textarea id="ordProb" rows="2" required>Frenos chirrean al frenar.</textarea>
+    <fieldset><legend>Servicios (precio foto — cambio de catálogo no recalcula <span class="tag">P</span>)</legend>
+    <label><input type="checkbox" checked> Afinamiento — S/ 120</label>
+    <label><input type="checkbox"> Revisión de frenos — S/ 80</label></fieldset>
+    <div class="row"><button class="btn primary" type="submit" data-solo="admin recep">Guardar → Detalle en “Recibido” (demo)</button><button class="btn ghost" type="button" data-go="ordenes">Cancelar</button></div>
+  </form>
+</section>
+
+<!-- PT-06 DETALLE ORDEN -->
+<section id="pantalla-orden-detalle" class="pantalla" aria-labelledby="t-od">
+  <h1 id="t-od">PT-06 · Detalle ORD-001 <small>(V-08c · WF-07 · RF-16–18, CU-08, Esc-4)</small></h1>
+  <p>Cliente: Rosa Pérez · Vehículo: ABC-123 · Problema: frenos chirrean · Estado: En reparación · Total: S/ 200 · <b>Saldo: S/ 150</b></p>
+  <p class="solo-rol">Edición (diagnóstico, tareas, estado): solo <b>Técnico</b> ●. Recepcionista/Admin/Admvo ◐: solo lectura (P-03: Admin-edita pendiente). Cobrar: Admvo (Admin consulta). Salidas: Inventario (Admin consulta).</p>
+  <label for="ordEstado" data-solo="tec">Estado (catálogo <span class="tag">P</span>: Recibido/En reparación/Listo…)
+  <select id="ordEstado"><option>Recibido</option><option selected>En reparación</option><option>Listo</option></select></label>
+  <h2>Diagnóstico (RF-16)</h2>
+  <textarea rows="2" id="ordDiag" data-solo="tec">Pastillas desgastadas; rectificar discos.</textarea>
+  <h2>Tareas</h2>
+  <label data-solo="tec"><input type="checkbox" checked> Cambiar pastillas</label>
+  <label data-solo="tec"><input type="checkbox"> Rectificar discos</label>
+  <button class="btn" data-demo="tarea-add" data-solo="tec">+ Agregar tarea (demo)</button>
+  <div class="row">
+    <button class="btn primary" data-demo="ord-guardar" data-solo="tec">Guardar cambios (demo)</button>
+    <button class="btn" data-go="finanzas" data-solo="admvo admin">Cobrar → V-10a</button>
+    <button class="btn" data-go="inventario" data-solo="inv admin">Registrar salida asociada → V-09c</button>
+  </div>
+</section>
+
+<!-- PT-07 INVENTARIO -->
+<section id="pantalla-inventario" class="pantalla" aria-labelledby="t-inv">
+  <h1 id="t-inv">PT-07 · Inventario <small>(V-09 · WF-08 · RF-19–23, CU-09/10, Esc-5)</small></h1>
+  <p class="solo-rol">Registro de productos y movimientos: solo <b>Encargado de inventario</b> ●. <b>Administrador</b> ◐: solo lectura.</p>
+  <p class="alert warn">⚠ 3 productos con stock bajo (RF-23): filtro “Bajo stock” + insignia + Dashboard.</p>
+  <table><caption>Productos ficticios</caption>
+  <thead><tr><th>Producto</th><th>Stock</th><th>Mínimo</th><th></th></tr></thead>
+  <tbody><tr><td>Pastilla de freno X</td><td><b>2</b> ⚠</td><td>5</td><td><button class="btn" data-demo="mov-salida" data-solo="inv">Salida</button> <button class="btn" data-demo="mov-entrada" data-solo="inv">Entrada</button></td></tr>
+  <tr><td>Aceite 10W-30</td><td>20</td><td>4</td><td><button class="btn" data-demo="mov-salida" data-solo="inv">Salida</button></td></tr></tbody></table>
+  <h2>Registrar movimiento (V-09c)</h2>
+  <form id="formMov" novalidate>
+    <label for="movCant">Cantidad *</label><input id="movCant" type="number" min="1" value="3">
+    <label for="movOrd">Orden asociada (solo salida, opcional)</label><input id="movOrd" value="ORD-001">
+    <p class="field-error" id="eMov" hidden></p>
+    <div class="row"><button class="btn primary" type="submit" data-solo="inv">Confirmar salida (demo)</button><button class="btn ghost" type="button" data-go="inventario">Cancelar</button></div>
+  </form>
+  <p class="hint">Regla R1/R2: stock solo vía movimiento; salida &gt; stock se rechaza. Umbral = stock mínimo (R3).</p>
+</section>
+
+<!-- PT-08 FINANZAS -->
+<section id="pantalla-finanzas" class="pantalla" aria-labelledby="t-fin">
+  <h1 id="t-fin">PT-08 · Finanzas <small>(V-10 · WF-09 · RF-29–33, CU-11/12/13, Esc-6)</small></h1>
+  <p class="solo-rol">Registro de cobros, ingresos, gastos y facturas: solo <b>Encargado administrativo</b> ●. <b>Administrador</b> ◐: solo lectura.</p>
+  <h2>Cobrar ORD-001 (V-10a)</h2>
+  <p>Total S/ 200 · Cobrado S/ 50 · <b>Saldo S/ 150</b> (= total − pagos, R4).</p>
+  <form id="formPago" novalidate>
+    <label for="pagoMonto">Monto recibido *</label><input id="pagoMonto" type="number" min="1" value="200">
+    <label for="pagoMet">Método *</label><select id="pagoMet"><option value="">— Elige —</option><option>Efectivo</option><option>Tarjeta</option><option>Yape</option></select>
+    <p class="field-error" id="ePago" hidden></p>
+    <div class="row"><button class="btn primary" type="submit" data-solo="admvo">Confirmar pago (demo)</button><button class="btn" type="button" data-demo="factura" data-solo="admvo">Generar factura → V-10c (demo)</button></div>
+  </form>
+  <p class="pendiente">Sobrepago: validación propuesta (rechazar monto &gt; saldo); regla definitiva pendiente (CU-11 E1).</p>
+  <h2>Factura interna (V-10c)</h2>
+  <p id="facturaBox" class="hint">Sin factura aún. [Generar factura] exige cobro previo (CU-13 E1). Consecutivo único; interna simple, sin alcance gubernamental. Cardinalidad 0..1 y moneda/impuestos: pendientes.</p>
+  <h2>Ingresos y gastos (V-10b)</h2>
+  <p class="hint">Demo: “Alquiler de cochera +S/ 300” / “Compra de repuestos −S/ 450”. [Registrar] pide concepto + monto &gt; 0 + fecha.</p>
+</section>
+
+<!-- PT-09 REPORTES -->
+<section id="pantalla-reportes" class="pantalla" aria-labelledby="t-rep">
+  <h1 id="t-rep">PT-09 · Reportes <small>(V-11 · WF-11 · RF-34–36, CU-14)</small></h1>
+  <form id="formRep">
+    <label for="repTipo">Tipo</label><select id="repTipo"><option>Reparaciones</option><option>Inventario</option><option>Financiero</option></select>
+    <label for="repDesde">Desde</label><input id="repDesde" type="date" value="2026-10-01">
+    <label for="repHasta">Hasta</label><input id="repHasta" type="date" value="2026-10-12">
+    <button class="btn primary" type="submit">Generar (demo)</button>
+  </form>
+  <table><caption>Resultado ficticio — Reparaciones 01–12 oct</caption>
+  <thead><tr><th>Orden</th><th>Estado</th><th>Total</th></tr></thead>
+  <tbody><tr><td>ORD-001</td><td>En reparación</td><td>S/ 200</td></tr><tr><td>ORD-002</td><td>Recibido</td><td>S/ 320</td></tr></tbody></table>
+  <p class="pendiente">Exportar PDF/CSV: pendiente (§6.5 n.º 10). Solo visualización en este prototipo.</p>
+</section>
+
+<!-- PT-10 USUARIOS -->
+<section id="pantalla-usuarios" class="pantalla" aria-labelledby="t-usr">
+  <h1 id="t-usr">PT-10 · Usuarios <small>(V-03 · WF-12 · RF-01/03/04, CU-02)</small></h1>
+  <p class="solo-rol">Gestión de cuentas y roles: solo <b>Administrador</b> ●.</p>
+  <h2>Usuarios (solo Admin)</h2>
+  <table><caption>Usuarios ficticios</caption>
+  <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Activo</th></tr></thead>
+  <tbody><tr><td>Ana</td><td>admin@taller.test</td><td>Administrador</td><td>Sí</td></tr>
+  <tr><td>Luis</td><td>tecnico@taller.test</td><td>Técnico</td><td>Sí</td></tr></tbody></table>
+</section>
+
+<!-- PT-12 SERVICIOS -->
+<section id="pantalla-servicios" class="pantalla" aria-labelledby="t-srv">
+  <h1 id="t-srv">PT-12 · Servicios <small>(V-06 · WF-12 · RF-24/25, CU-05)</small></h1>
+  <p class="solo-rol">Gestión del catálogo: solo <b>Administrador</b> ●. Recepcionista <span class="tag">P-02</span>: solo usa el catálogo en citas y órdenes hasta confirmación del equipo.</p>
+  <h2>Catálogo (V-06a)</h2>
+  <table><caption>Catálogo ficticio</caption>
+  <thead><tr><th>Servicio</th><th>Descripción</th><th>Precio</th></tr></thead>
+  <tbody><tr><td>Afinamiento</td><td>Mantenimiento preventivo básico</td><td>S/ 120</td></tr><tr><td>Revisión de frenos</td><td>Inspección y ajuste del sistema de frenos</td><td>S/ 80</td></tr></tbody></table>
+  <p class="pendiente">Moneda/impuestos y nombre único: pendientes (§7.8). La descripción es opcional (Fase 1 §7.4).</p>
+</section>
+
+</main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

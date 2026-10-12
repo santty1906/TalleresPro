@@ -1,0 +1,185 @@
+@startuml TalleresPro - Modelo de navegacion Fase 2
+' ============================================================
+' TalleresPro - Fase 2, Deliverable 3: Modelo de navegacion actualizado
+' Base: Fase 1 diagrama_navegacion.puml + §8.3-§8.5. Conserva los
+' 11 modulos y subvistas; anade: migas, retorno/cancelar/guardar,
+' 403/404, filtrado de menu por rol y bitacora de cambios (§9 de
+' modelo_navegacion_fase_2.md). Flecha continua = navegacion;
+' punteada = acceso por rol / drill-down / alimentacion.
+' Fuente normativa: este .puml + modelo_navegacion_fase_2.md
+' ============================================================
+
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam package {
+  BorderColor black
+}
+skinparam actor {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+left to right direction
+title TalleresPro Fase 2 - Modelo de navegacion actualizado
+
+actor "Administrador" as Admin
+actor "Recepcionista" as Recep
+actor "Tecnico" as Tec
+actor "Encargado de\ninventario" as Inv
+actor "Encargado\nadministrativo" as Admvo
+
+rectangle "Inicio [*]\n(no autenticado)" as Inicio
+rectangle "V-01\nLogin" as Login
+rectangle "V-02\nDashboard\n(solo Admin confirmado)" as Dash
+rectangle "Inicio por rol [P-01]\n(propuesta provisional)" as InicioRol
+
+Inicio --> Login
+Login --> Dash : "CU-01 exito (Admin)"
+Login --> InicioRol : "CU-01 exito (otros, P-01)"
+Login --> Login : "error: permanece\ncon mensaje (RNF-02)"
+
+package "V-03 Usuarios" {
+  rectangle "V-03a\nLista" as U_L
+  rectangle "V-03b\nFormulario" as U_F
+}
+package "V-04 Clientes" {
+  rectangle "V-04a\nLista / buscar" as C_L
+  rectangle "V-04b\nFormulario" as C_F
+  rectangle "V-04c\nDetalle" as C_D
+}
+package "V-05 Vehiculos" {
+  rectangle "V-05a\nLista / buscar" as V_L
+  rectangle "V-05b\nFormulario" as V_F
+  rectangle "V-05c\nDetalle + historial" as V_D
+}
+package "V-06 Servicios" {
+  rectangle "V-06a\nCatalogo" as S_L
+  rectangle "V-06b\nFormulario" as S_F
+}
+package "V-07 Citas" {
+  rectangle "V-07a\nAgenda" as A_L
+  rectangle "V-07b\nFormulario" as A_F
+}
+package "V-08 Ordenes" {
+  rectangle "V-08a\nLista / buscar" as O_L
+  rectangle "V-08b\nCrear" as O_C
+  rectangle "V-08c\nDetalle\n(diag/tareas/estados)" as O_D
+}
+package "V-09 Inventario" {
+  rectangle "V-09a\nLista" as P_L
+  rectangle "V-09b\nFormulario" as P_F
+  rectangle "V-09c\nMovimiento" as M_F
+  rectangle "V-09d\nAviso <<derivada>>" as Stock
+}
+package "V-10 Finanzas" {
+  rectangle "V-10a\nCobrar" as F_C
+  rectangle "V-10b\nIngresos/gastos" as F_IG
+  rectangle "V-10c\nFactura" as F_F
+}
+package "V-11 Reportes" {
+  rectangle "V-11a\nSelector" as R_S
+  rectangle "V-11b\nResultado" as R_R
+}
+
+rectangle "403 Sin permiso\n<<tecnica>>" as E403
+rectangle "404 No encontrado\n<<tecnica>>" as E404
+rectangle "Migas: Modulo > Lista > Detalle\n+ Volver/Cancelar/Guardar\n(patron en cada vista)" as Migas
+
+' Principal desde dashboard e inicio por rol
+Dash --> U_L
+Dash --> C_L
+Dash --> V_L
+Dash --> S_L
+Dash --> A_L
+Dash --> O_L
+Dash --> P_L
+Dash --> F_IG
+Dash --> R_S
+InicioRol --> C_L
+InicioRol --> O_L
+InicioRol --> P_L
+InicioRol --> F_IG
+Dash ..> O_L : "drill-down"
+Dash ..> A_L : "drill-down"
+Dash ..> P_L : "drill-down"
+Dash ..> F_IG : "drill-down"
+
+' Interna
+U_L --> U_F : "nuevo / editar"
+C_L --> C_F : "nuevo"
+C_L --> C_D : "ver"
+C_D --> C_F : "editar"
+V_L --> V_F : "nuevo"
+V_L --> V_D : "ver"
+V_D --> V_F : "editar"
+S_L --> S_F : "nuevo / editar"
+A_L --> A_F : "agendar / editar"
+O_L --> O_C : "nueva"
+O_L --> O_D : "ver"
+P_L --> P_F : "nuevo / editar"
+P_L --> M_F : "entrada / salida"
+M_F --> Stock : "stock <= minimo"
+R_S --> R_R : "generar"
+
+' Cruzadas
+C_D --> V_F : "agregar vehiculo"
+V_D --> O_C : "crear orden"
+A_L --> O_C : "desde cita"
+O_D --> F_C : "cobrar"
+F_C --> F_F : "facturar"
+O_D --> M_F : "salida asociada"
+
+' Retorno / cancelacion (patron)
+U_F ..> U_L : "guardar/cancelar/volver"
+C_F ..> C_L : "guardar/cancelar/volver"
+V_F ..> V_L : "guardar/cancelar/volver"
+A_F ..> A_L : "guardar/cancelar/volver"
+O_C ..> O_L : "guardar/cancelar/volver"
+O_D ..> O_L : "volver"
+M_F ..> P_L : "confirmar/volver"
+F_C ..> O_D : "volver"
+R_R ..> R_S : "ajustar filtros"
+
+' Roles (primarios; detalle en .md §4)
+Admin ..> Login
+Recep ..> Login
+Tec ..> Login
+Inv ..> Login
+Admvo ..> Login
+Admin ..> U_L
+Admin ..> Dash
+Admin ..> R_S
+Recep ..> C_L
+Recep ..> V_L
+Recep ..> A_L
+Recep ..> O_L
+Tec ..> O_D
+Inv ..> P_L
+Admvo ..> F_C
+Admvo ..> F_IG
+Admvo ..> F_F
+
+' Sin permiso y ruta inexistente (tecnicas propuestas, RNF-05)
+U_L ..> E403 : "sin rol"
+V_L ..> E403 : "sin rol"
+P_L ..> E403 : "sin rol"
+F_C ..> E403 : "sin rol"
+' 404: reserva para cualquier URL inexistente (ejemplo ilustrativo,
+' no ruta de negocio; aplica a cualquier vista).
+O_L ..> E404 : "URL inexistente\n(ejemplo)"
+
+note bottom of F_F
+  Cambios vs Fase 1 (§8 del .md):
+  + Migas + Volver/Cancelar/Guardar explicitos
+  + Inicio por rol P-01 (propuesta, pendiente)
+  + 403/404 y solo-lectura explicitos
+  + Retornos desde cada formulario/detalle
+  = Todo lo demas se conserva (V-01..V-11,
+    cruzadas F2-F5, drill-down CU-15 A1)
+end note
+
+@enduml

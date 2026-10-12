@@ -1,0 +1,90 @@
+@startuml TalleresPro - Flujos FL-08, FL-09 y secundarios (gestion)
+' ============================================================
+' TalleresPro - Fase 2, Deliverable 4: FL-08, FL-09 + secundarios.
+' Detalle visual de flujos_navegacion.md (mismos pasos, actores,
+' decisiones, alternos y errores; sin CU ni reglas nuevas).
+' Ver tambien: flujos_navegacion.puml (FL-01 + indice),
+' flujos_atencion.puml (FL-02..FL-04),
+' flujos_operacion.puml (FL-05..FL-07).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam partition {
+  BorderColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+title TalleresPro Fase 2 - Flujos de gestion (FL-08, FL-09)
+
+partition "FL-08 Citas (Recep.; Admin | CU-06, RF-26-28, sin escenario)" {
+  start
+  :V-07a Agenda:\nconsultar dia y filtros (RF-28);
+  :V-07b: cliente + vehiculo\n+ servicio [P] + fecha/hora;
+  if (Futura y sin traslape? [P]) then (no)
+    :E1: rechaza e indica;
+    stop
+  else (si)
+    :Confirma: agenda actualizada;
+  endif
+  if (Cancelar?) then (si)
+    :Dialogo (RF-27);\nE3 atendida o cancelada:\nadvierte, no duplica;
+  else (no)
+  endif
+  :[Crear orden desde cita]\n-> FL-04 (precarga A1);
+  note right
+    E2: cliente, vehiculo o
+    servicio inexistente
+  end note
+  stop
+}
+
+partition "FL-09a Dashboard (Admin | CU-15, RF-37/38, Esc-7)" {
+  start
+  :V-02: pendientes,\ncitas del dia, poco stock,\ntotales;
+  :Clic en indicador\n-> drill-down (A1);
+  if (Sin datos?) then (si)
+    :Cero o "sin registros" (E1);
+  else (no)
+  endif
+  if (Un indicador falla?) then (si)
+    :Lo senala, mantiene\nlos demas (E2);
+  else (no)
+  endif
+  stop
+}
+
+partition "FL-09b Reportes (Admin + Admvo | CU-14, RF-34-36, sin escenario)" {
+  start
+  :V-11a: tipo + filtros\n+ fecha -> [Generar];
+  if (Parametros validos?) then (no)
+    :E1: indica que corregir;
+    stop
+  else (si)
+    :V-11b: muestra reporte;
+  endif
+  if (Sin datos?) then (si)
+    :Mensaje + [Ajustar filtros] (E2);
+  else (no)
+  endif
+  note right
+    Exportacion PDF/CSV [P]
+    (6.5 n. 10): solo ver
+  end note
+  stop
+}
+
+partition "Secundarios (sin ficha extendida; ver .md)" {
+  :CU-02 Usuarios (V-03):\nAdmin crea/edita + rol;
+  :CU-05 Servicios (V-06):\nAdmin gestiona [P-02];
+  :CU-09 Repuestos (V-09a/b):\nInventario registra;
+  :CU-12 Ingresos/gastos (V-10b):\nAdmvo registra;
+  stop
+}
+
+@enduml

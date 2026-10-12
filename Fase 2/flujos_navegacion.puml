@@ -1,0 +1,63 @@
+@startuml TalleresPro - Flujos de navegacion Fase 2
+' ============================================================
+' TalleresPro - Fase 2, Deliverable 4 (diagrama indice + FL-01):
+' FL-01 se diagrama aqui; FL-02..FL-09 en el set detallado.
+' Cada flujo usa solo paginas V-xx del sitemap y roles de §8.4.
+' El paso a paso esta en flujos_navegacion.md.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+
+title TalleresPro Fase 2 - Flujos principales (resumen navegable)
+
+' ---- FL-01 Autenticacion ----
+start
+:FL-01 Autenticacion (CU-01, RF-02)\n[*] -> V-01 -> punto de partida;
+if (Credenciales validas?) then (no)
+  :V-01 con mensaje (RNF-02)\nE1/E2/E3;
+  stop
+else (si)
+  if (Rol?) then (Admin)
+    :V-02 Dashboard;
+  else (otros)
+    :Inicio por rol [P-01]\n(modulo principal);
+  endif
+endif
+stop
+
+' ---- Nota de cobertura y diagrama detallado ----
+note right
+  Detalle visual por grupo (misma fuente que .md):
+  - flujos_atencion.puml: FL-02, FL-03, FL-04
+  - flujos_operacion.puml: FL-05, FL-06, FL-07
+  - flujos_gestion.puml: FL-08, FL-09 + secundarios
+  Resumen:
+  FL-02 Cliente (Esc-1/CU-03):
+  V-04a -> V-04b -> V-04c
+  FL-03 Vehiculo (Esc-2/CU-04):
+  V-04c/V-05a -> V-05b -> V-05c (+historial)
+  FL-04 Crear orden (Esc-3/CU-07):
+  V-05c/V-07a -> V-08b -> V-08c (Recibido)
+  FL-05 Actualizar reparacion (Esc-4/CU-08):
+  V-08a -> V-08c -> guardar (diag/tareas/estado)
+  FL-06 Movimiento stock (Esc-5/CU-10):
+  V-09a/V-08c -> V-09c -> V-09d si aplica
+  FL-07 Cobro+factura (Esc-6/CU-11+13):
+  V-08c -> V-10a -> V-10c (opcional)
+  FL-08 Citas (CU-06):
+  V-07a <-> V-07b (agendar/editar/cancelar)
+  FL-09 Dashboard+reportes (Esc-7/CU-14/15):
+  V-02 -> drill-down; V-11a -> V-11b
+  Secundarios: CU-02 (V-03), CU-05 (V-06),
+  CU-09 (V-09a/b), CU-12 (V-10b)
+  Paso a paso en flujos_navegacion.md.
+end note
+
+@enduml
