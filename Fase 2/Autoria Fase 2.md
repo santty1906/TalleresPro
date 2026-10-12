@@ -1,10 +1,4 @@
-# Autoría — Fase 2: Arquitectura de información y diseño de interfaz (TalleresPro)
-
-> Proyecto: TalleresPro. Entregable: Fase 2 — Arquitectura de información y
-> diseño de interfaz (arquitectura de información, sitemap, modelo de
-> navegación actualizado, flujos principales, wireframes, prototipo visual y
-> matriz de coherencia Fase 1 → Fase 2). Los artefactos están en `Fase 2/`;
-> la autoría de Fase 1 se conserva sin cambios en `Fase 1/Autoria Fase 1.md`.
+# Autoría — Fase 2
 
 | Sección del documento | Integrante(s) | Herramienta y link al prompt utilizado | Aporte de la IA | Aporte intelectual del equipo |
 | --------------------- | ------------- | -------------------------------------- | --------------- | ----------------------------- |
