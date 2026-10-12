@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<text x="40" y="166" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Patrón transversal — aplica en cada WF según tabla de arquitectura §10.</text>
+<rect x="40" y="184" width="265" height="120" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="52" y="210" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Lista vacía</text>
+<text x="52" y="234" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Sin registros.</text>
+<text x="52" y="254" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Registrar …]."</text>
+<rect x="325" y="184" width="265" height="120" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="337" y="210" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Sin coincidencias</text>
+<text x="337" y="234" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Sin coincidencias</text>
+<text x="337" y="254" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">para … [Limpiar]."</text>
+<rect x="610" y="184" width="265" height="120" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="622" y="210" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Historial vacío</text>
+<text x="622" y="234" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Aún no tiene</text>
+<text x="622" y="254" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">reparaciones."</text>
+<rect x="895" y="184" width="265" height="120" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="907" y="210" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Carga</text>
+<text x="907" y="234" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Cargando…"</text>
+<text x="907" y="254" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">(esqueleto)</text>
+<rect x="40" y="324" width="265" height="120" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="52" y="350" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Error + [Reintentar]</text>
+<text x="52" y="374" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Señala el fallo;</text>
+<text x="52" y="394" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">mantiene lo demás.</text>
+<rect x="325" y="324" width="265" height="120" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="337" y="350" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">403 Sin permiso</text>
+<text x="337" y="374" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Sin permiso.</text>
+<text x="337" y="394" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Volver a mi inicio]."</text>
+<rect x="610" y="324" width="265" height="120" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="622" y="350" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Sesión requerida</text>
+<text x="622" y="374" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Inicia sesión</text>
+<text x="622" y="394" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">para continuar." → V-01</text>
+<rect x="895" y="324" width="265" height="120" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="907" y="350" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Confirmación</text>
+<text x="907" y="374" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"¿Confirmar? …"</text>
+<text x="907" y="394" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Confirmar/Cancelar]</text>
+<rect x="40" y="484" width="1120" height="64" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="50" y="508" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Refs: RNF-02, RNF-04, RNF-05, RNF-07, RNF-11 + excepciones CU-01 a CU-15.</text>
+<text x="50" y="528" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Prototipo: botones “Estados (demo)” claramente etiquetados, no datos reales.</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-13 · Estados transversales (vacío / error / 403 / confirmación)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Transversal RNF-02/04/05/07/11  ·  Datos ficticios</text>
+</svg>

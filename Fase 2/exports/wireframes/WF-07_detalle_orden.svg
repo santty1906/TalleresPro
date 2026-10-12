@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="84" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Órdenes</text>
+<text x="154" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Citas</text>
+<text x="246" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Órdenes › ORD-001 › Detalle</text>
+<rect x="40" y="210" width="1120" height="64" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="56" y="240" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Resumen: Cliente · Vehículo · Problema · Servicios · Total · Saldo</text>
+<text x="56" y="260" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Estado: [En reparación v]  (catálogo y transiciones [Pendiente] RF-17)</text>
+<text x="40" y="312" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">Diagnóstico: (texto)    [Guardar diagnóstico]</text>
+<rect x="40" y="324" width="1120" height="44" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="56" y="351" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">(texto del diagnóstico…)</text>
+<text x="40" y="408" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">Tareas:  [ ] Cambio aceite   [x] Revisión frenos   [+ Agregar]</text>
+<text x="40" y="448" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Relacionados:</text>
+<rect x="190" y="426" width="170" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="275.0" y="446" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Cobrar → V-10a]</text>
+<rect x="370" y="426" width="180" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="460.0" y="446" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Facturar → V-10c]</text>
+<rect x="560" y="426" width="330" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="725.0" y="446" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Registrar salida → V-09c]</text>
+<rect x="40" y="486" width="1120" height="120" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="56" y="514" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Solo lectura (◐): sin [Guardar] ni estado editable. Aviso: “Solo lectura según tu rol.”</text>
+<text x="56" y="538" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">E1 orden inexistente · E2 transición inválida o cierre sin diagnóstico [P].</text>
+<text x="56" y="562" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Guardado: “Orden actualizada” (A2 incremental).</text>
+<text x="56" y="586" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[P-03: Admin edita o solo lee — pendiente].</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-07 · Detalle de orden (V-08c)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: Tec ● edita; Recep/Admin/Admvo ◐  ·  Refs: RF-16–18 / CU-08 / Esc-4  ·  Datos ficticios</text>
+</svg>

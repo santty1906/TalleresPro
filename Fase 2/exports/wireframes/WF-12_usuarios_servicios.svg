@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="92" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Usuarios</text>
+<text x="162" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Servicios</text>
+<text x="286" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Usuarios › Lista  +  Servicios › Catálogo</text>
+<text x="40" y="224" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Admin ● en ambos; Recep ◐ en servicios [P-02: solo usa]  ·  RF-01/03/04 (CU-02), RF-24/25 (CU-05). Sin escenario.</text>
+<rect x="40" y="238" width="1120" height="250" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="56" y="264" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">V-03a Lista: nombre · correo · rol · activo</text>
+<rect x="56" y="276" width="250" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="295" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Nombre</text>
+<rect x="306" y="276" width="350" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="312" y="295" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Correo</text>
+<rect x="656" y="276" width="250" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="662" y="295" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Rol</text>
+<rect x="906" y="276" width="270" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="912" y="295" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Activo</text>
+<rect x="56" y="304" width="250" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="323" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">…</text>
+<rect x="306" y="304" width="350" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="312" y="323" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">…</text>
+<rect x="656" y="304" width="250" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="662" y="323" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">…</text>
+<rect x="906" y="304" width="270" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="912" y="323" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">Sí</text>
+<text x="56" y="354" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">V-03b Formulario: datos + rol + [Guardar]. E1 correo duplicado · E2 rol inválido.</text>
+<text x="56" y="378" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Bloquear aplica al siguiente ingreso (A1).</text>
+<text x="56" y="402" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Registrar usuario]  (solo Admin; sin autorregistro en V-01).</text>
+<rect x="40" y="506" width="1120" height="220" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="56" y="534" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">V-06a Catálogo + V-06b Formulario</text>
+<rect x="56" y="546" width="300" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="565" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Servicio</text>
+<rect x="356" y="546" width="520" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="362" y="565" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Descripción</text>
+<rect x="876" y="546" width="300" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="882" y="565" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Precio</text>
+<rect x="56" y="574" width="300" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="593" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">…</text>
+<rect x="356" y="574" width="520" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="362" y="593" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">…</text>
+<rect x="876" y="574" width="300" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="882" y="593" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">S/ …</text>
+<text x="56" y="624" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">Formulario: nombre único (propuesto) + descripción opcional + precio &gt; 0 (E1).</text>
+<text x="56" y="648" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Guardar] → disponible en citas/órdenes. Moneda e impuestos [Pendiente].</text>
+<text x="56" y="672" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[P-02: Recepcionista solo usa el catálogo hasta confirmación].</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-12 · Usuarios y servicios (V-03a–b, V-06a–b)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">RF-01/03/04, RF-24/25 / CU-02, CU-05  ·  Datos ficticios</text>
+</svg>

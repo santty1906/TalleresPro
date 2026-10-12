@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="92" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Clientes</text>
+<text x="162" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Vehículos</text>
+<text x="286" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Órdenes</text>
+<text x="394" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Inventario</text>
+<text x="526" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Clientes › Lista   (ejemplo del patrón)</text>
+<rect x="40" y="208" width="1120" height="64" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="50" y="232" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">PATRÓN compartido por: V-04a Clientes · V-05a Vehículos · V-08a Órdenes · V-09a Productos ·</text>
+<text x="50" y="252" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">V-03a Usuarios · V-06a Servicios · V-07a Agenda. Ejemplo dibujado con Clientes.</text>
+<text x="40" y="308" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">Buscar:</text>
+<rect x="110" y="286" width="220" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="118" y="306" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">(........)</text>
+<rect x="340" y="286" width="90" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="385.0" y="306" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Buscar]</text>
+<rect x="438" y="286" width="90" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="483.0" y="306" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Limpiar]</text>
+<rect x="960" y="286" width="200" height="30" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="1060.0" y="306" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#fff">[Registrar cliente]</text>
+<rect x="40" y="334" width="1120" height="40" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="56" y="359" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555" font-style="italic"># aviso: "Cliente guardado." / "Sin coincidencias…" #</text>
+<rect x="40" y="390" width="280" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="409" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Nombre</text>
+<rect x="320" y="390" width="240" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="326" y="409" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Documento</text>
+<rect x="560" y="390" width="220" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="566" y="409" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Teléfono</text>
+<rect x="780" y="390" width="160" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="786" y="409" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Estado</text>
+<rect x="940" y="390" width="220" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="946" y="409" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold"></text>
+<rect x="40" y="418" width="280" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="437" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="320" y="418" width="240" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="326" y="437" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="560" y="418" width="220" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="566" y="437" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="780" y="418" width="160" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="786" y="437" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">Activo</text>
+<rect x="940" y="418" width="220" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="946" y="437" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[Ver]</text>
+<rect x="40" y="446" width="280" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="465" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="320" y="446" width="240" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="326" y="465" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="560" y="446" width="220" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="566" y="465" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="780" y="446" width="160" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="786" y="465" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">Activo</text>
+<rect x="940" y="446" width="220" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="946" y="465" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[Ver]</text>
+<text x="40" y="510" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Vacío: "Sin registros. [Registrar cliente]."   ·   Carga: "Cargando…"   ·   Error + [Reintentar]</text>
+<text x="40" y="534" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Ver] → detalle  ·  [Registrar] → formulario  ·  Paginación simple si hay muchos (propuesta, no RF)</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-03 · Lista + búsqueda — PATRÓN (V-04a y análogos)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles (ejemplo): Recep ●, Admin ◐  ·  Refs: RF-06 / CU-03 / Esc-1  ·  Datos ficticios</text>
+</svg>

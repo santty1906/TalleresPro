@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Admin ficticio  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="100" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Dashboard</text>
+<text x="170" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Órdenes</text>
+<text x="278" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Citas</text>
+<text x="370" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Clientes</text>
+<text x="486" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Dashboard › Resumen</text>
+<rect x="40" y="212" width="260" height="150" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="54" y="238" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Trabajos</text>
+<text x="54" y="262" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">pendientes:</text>
+<text x="54" y="286" font-family="Arial,sans-serif" font-size="16" text-anchor="start" fill="#222" font-weight="bold">N (&gt; órdenes)</text>
+<text x="54" y="342" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">→ Órdenes V-08a</text>
+<rect x="320" y="212" width="260" height="150" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="334" y="238" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Citas de hoy:</text>
+<text x="334" y="262" font-family="Arial,sans-serif" font-size="16" text-anchor="start" fill="#222" font-weight="bold">N (&gt; agenda)</text>
+<text x="334" y="342" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">→ Agenda V-07a</text>
+<rect x="600" y="212" width="260" height="150" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="614" y="238" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Poco stock:</text>
+<text x="614" y="262" font-family="Arial,sans-serif" font-size="16" text-anchor="start" fill="#222" font-weight="bold">N (&gt; invent.)</text>
+<text x="614" y="342" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">→ Inventario V-09a</text>
+<rect x="880" y="212" width="260" height="150" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
+<text x="894" y="238" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Totales:</text>
+<text x="894" y="262" font-family="Arial,sans-serif" font-size="16" text-anchor="start" fill="#222" font-weight="bold">cobros, ingresos,</text>
+<text x="894" y="286" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">gastos</text>
+<text x="894" y="342" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">→ Finanzas V-10b</text>
+<rect x="40" y="382" width="1120" height="82" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="50" y="406" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Clic en tarjeta → drill-down (CU-15 A1). Sin datos: cero / “sin registros” (E1).</text>
+<text x="50" y="426" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Error de un indicador (E2): lo señala, mantiene los demás + [Reintentar].</text>
+<text x="50" y="446" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">P-01: otros roles ven su módulo, no este panel completo (pendiente).</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-02 · Dashboard (V-02)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: Admin ● confirmado; resto — (P-01)  ·  Refs: RF-37/38 / CU-15 / Esc-7  ·  Datos ficticios</text>
+</svg>

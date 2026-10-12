@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="92" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Finanzas</text>
+<text x="162" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Órdenes</text>
+<text x="270" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Finanzas › Cobrar / Ingresos / Factura</text>
+<rect x="40" y="210" width="1120" height="330" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="56" y="236" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">V-10a Cobrar ORD-001 (desde orden)  ·  Admvo ●, Admin ◐  ·  RF-29/30 / CU-11 / Esc-6</text>
+<text x="56" y="264" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">Total: S/ …   Cobrado: …   Saldo: … (total − pagos)</text>
+<text x="56" y="290" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Monto recibido (*): (...)</text>
+<rect x="56" y="296" width="300" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="376" y="290" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Método: (Efectivo/Tarjeta/…)</text>
+<rect x="376" y="296" width="320" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<rect x="56" y="364" width="170" height="30" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="141.0" y="384" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#fff">[Confirmar pago]</text>
+<rect x="236" y="364" width="170" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="321.0" y="384" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Volver a orden]</text>
+<text x="56" y="414" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">E: "Monto &gt; 0." / "Elige método." / "Supera el saldo. Ajusta. [P-sobrepago]"</text>
+<text x="56" y="438" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Éxito: "Pago registrado. Saldo: S/ …" (A1 parcial / A2 total).</text>
+<text x="56" y="462" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Pestañas V-10b: Ingresos | Gastos — concepto (*), monto (&gt; 0), fecha. Sin vínculo a orden.</text>
+<text x="56" y="486" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">V-10c Factura: [Generar] exige cobro (E1) · consecutivo único · [Reimprimir]. 0..1 y moneda [P].</text>
+<text x="56" y="510" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Interna simple; sin bancos ni facturación gubernamental (§1.5).</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-09 · Finanzas: cobro, ingresos/gastos, factura (V-10a–c)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">RF-29–33 / CU-11, CU-12, CU-13 / Esc-6  ·  Datos ficticios</text>
+</svg>

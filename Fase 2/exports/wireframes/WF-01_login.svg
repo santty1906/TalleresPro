@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<text x="600.0" y="180" font-family="Arial,sans-serif" font-size="20" text-anchor="middle" fill="#222" font-weight="bold">INICIAR SESIÓN</text>
+<rect x="330" y="200" width="540" height="46" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="350" y="228" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555" font-style="italic"># resumen-error (solo si E1/E2/E3) #</text>
+<text x="380" y="274" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Correo:</text>
+<rect x="380" y="280" width="440" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="380" y="334" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Contraseña:</text>
+<rect x="380" y="340" width="360" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<rect x="752" y="340" width="68" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="786.0" y="360" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[ver]</text>
+<rect x="380" y="400" width="130" height="30" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="445.0" y="420" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#fff">[Ingresar]</text>
+<text x="380" y="460" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Mensajes: "Correo o contraseña incorrectos." (E1)</text>
+<text x="380" y="482" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Mensajes: "Cuenta desactivada. Contacta al administrador." (E2)</text>
+<text x="380" y="504" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Mensajes: "Indica correo y contraseña." (E3)</text>
+<rect x="330" y="542" width="540" height="82" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="340" y="566" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Sin autorregistro: RF-01 es gestión del Admin en V-03.</text>
+<text x="340" y="586" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Éxito → V-02 / inicio por rol (P-01). Fallo → permanece en V-01.</text>
+<text x="340" y="606" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Sesión activa (A1) → redirige, no muestra login.</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-01 · Login (V-01)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: todos  ·  Refs: RF-02 / CU-01 / Esc-1,4,7 (pasos)  ·  Datos ficticios</text>
+</svg>

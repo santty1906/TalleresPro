@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="108" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Inventario</text>
+<text x="178" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Órdenes</text>
+<text x="286" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Inventario › Productos / Movimiento / Aviso</text>
+<text x="40" y="224" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">V-09a Lista  ·  Inventario ●, Admin ◐  ·  RF-19–23 / CU-09, CU-10 / Esc-5</text>
+<rect x="40" y="236" width="1120" height="210" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="56" y="262" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Inventario › Productos     [Nuevo producto]  [Registrar movimiento]</text>
+<text x="56" y="288" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Buscar: (...)    Insignia: "! Bajo stock (N)" (→ filtrado)</text>
+<rect x="56" y="300" width="300" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="319" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Producto</text>
+<rect x="356" y="300" width="140" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="362" y="319" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Stock</text>
+<rect x="496" y="300" width="140" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="502" y="319" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Mínimo</text>
+<rect x="636" y="300" width="160" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="642" y="319" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Estado</text>
+<rect x="796" y="300" width="380" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="802" y="319" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold"></text>
+<rect x="56" y="328" width="300" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="347" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="356" y="328" width="140" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="362" y="347" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">2 ⚠</text>
+<rect x="496" y="328" width="140" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="502" y="347" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">5</text>
+<rect x="636" y="328" width="160" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="642" y="347" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">Bajo</text>
+<rect x="796" y="328" width="380" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="802" y="347" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[Ver] [Entrada/Salida]</text>
+<rect x="56" y="356" width="300" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="62" y="375" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="356" y="356" width="140" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="362" y="375" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">20</text>
+<rect x="496" y="356" width="140" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="502" y="375" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">4</text>
+<rect x="636" y="356" width="160" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="642" y="375" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">OK</text>
+<rect x="796" y="356" width="380" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="802" y="375" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[Ver] [Entrada/Salida]</text>
+<rect x="40" y="464" width="550" height="250" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="56" y="490" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">V-09c Registrar salida (o entrada)</text>
+<text x="56" y="516" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Producto: (...)</text>
+<rect x="56" y="522" width="250" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="316" y="516" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Cantidad: (N)</text>
+<rect x="316" y="522" width="150" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="56" y="586" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Orden asociada: (ORD-001, opcional)</text>
+<rect x="56" y="592" width="410" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="56" y="660" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Stock: N → quedará N−cantidad</text>
+<rect x="56" y="670" width="120" height="30" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="116.0" y="690" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#fff">[Confirmar]</text>
+<rect x="186" y="670" width="120" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="246.0" y="690" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Cancelar]</text>
+<rect x="610" y="464" width="550" height="250" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="626" y="490" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">V-09d Aviso (derivada, no formulario)</text>
+<rect x="626" y="504" width="518" height="60" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="640" y="530" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-style="italic"># "Aviso: stock bajo en X (quedan N, mínimo M)." #</text>
+<text x="640" y="552" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">+ insignia en lista y Dashboard (RF-23).</text>
+<text x="626" y="594" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">V-09b Producto: nombre, stock inicial,</text>
+<text x="626" y="616" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">mínimo (≥ 0), activo. Stock solo vía</text>
+<text x="626" y="638" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222">movimientos (R1); no editable directo.</text>
+<text x="626" y="664" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Errores: "Cantidad &gt; 0." / "Stock: N." (E1/E2).</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-08 · Inventario: lista, movimiento, aviso (V-09a–d)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: Inventario ●; Admin ◐  ·  RF-19–23 / CU-09, CU-10 / Esc-5  ·  Datos ficticios</text>
+</svg>

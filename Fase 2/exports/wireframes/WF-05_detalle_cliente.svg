@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="92" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Clientes</text>
+<text x="162" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Vehículos</text>
+<text x="286" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Órdenes</text>
+<text x="394" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Clientes › CLI-001 › Detalle</text>
+<rect x="40" y="210" width="1120" height="90" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="60" y="240" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Datos: Nombre · Documento · Teléfono · Correo · Estado</text>
+<rect x="60" y="254" width="100" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="110.0" y="274" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Editar]</text>
+<rect x="170" y="254" width="230" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="285.0" y="274" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Desactivar → diálogo]</text>
+<text x="40" y="342" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Vehículos del cliente:</text>
+<rect x="40" y="354" width="220" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="373" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Placa</text>
+<rect x="260" y="354" width="560" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="266" y="373" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Marca / Modelo</text>
+<rect x="820" y="354" width="340" height="28" fill="#dcdcdc" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="826" y="373" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold"></text>
+<rect x="40" y="382" width="220" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="401" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="260" y="382" width="560" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="266" y="401" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="820" y="382" width="340" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="826" y="401" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[Ver → V-05c]</text>
+<rect x="40" y="410" width="220" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="429" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="260" y="410" width="560" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="266" y="429" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">………</text>
+<rect x="820" y="410" width="340" height="28" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="826" y="429" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[Ver → V-05c]</text>
+<rect x="40" y="452" width="340" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="210.0" y="472" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Agregar vehículo → V-05b]</text>
+<rect x="40" y="502" width="1120" height="110" fill="#fff" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="60" y="532" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Diálogo Desactivar: "¿Desactivar? No se borra."</text>
+<rect x="60" y="550" width="130" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="125.0" y="570" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Confirmar]</text>
+<rect x="200" y="550" width="120" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="260.0" y="570" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Cancelar]</text>
+<rect x="40" y="628" width="1120" height="64" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="50" y="652" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">P: con órdenes activas debe advertir antes de confirmar (CU-03 E3, pendiente).</text>
+<text x="50" y="672" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Destinos: [Editar] → V-04b · [Agregar] → V-05b · [Ver] → V-05c.</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-05 · Detalle de cliente (V-04c)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: Recep ●, Admin ◐  ·  Refs: RF-05–08 / CU-03 (+CU-04)  ·  Datos ficticios</text>
+</svg>

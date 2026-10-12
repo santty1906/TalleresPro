@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+<style>text{font-family:Arial,sans-serif}</style>
+<rect x="0" y="0" width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="58" fill="#333"/>
+<rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
+<text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
+<rect x="24" y="140" width="1152" height="32" fill="#f4f4f4" stroke="#222" stroke-width="1.5" rx="0"/>
+<rect x="32" y="144" width="92" height="24" fill="#c9c9c9" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="46" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">[x] Clientes</text>
+<text x="162" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Vehículos</text>
+<text x="286" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] Órdenes</text>
+<text x="394" y="161" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222">[ ] …</text>
+<text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Clientes › Nuevo (o Editar)</text>
+<rect x="40" y="208" width="1120" height="64" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="50" y="232" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">PATRÓN compartido por: V-04b · V-05b · V-03b · V-06b · V-07b · V-09b. Ejemplo dibujado con Cliente.</text>
+<text x="50" y="252" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Campos mínimos §7.4: nombre, documento, teléfono, correo, activo. Unicidad [Pendiente] §7.8 n.º 5.</text>
+<rect x="180" y="286" width="840" height="44" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
+<text x="200" y="314" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555" font-style="italic"># resumen: "Revisa 2 campos: Documento, Correo." (foco al primero) #</text>
+<text x="220" y="374" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Nombre (*):</text>
+<rect x="220" y="380" width="560" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="220" y="426" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Obligatorio.</text>
+<text x="220" y="454" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Documento:</text>
+<rect x="220" y="460" width="560" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="228" y="480" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#333">(................)</text>
+<text x="220" y="524" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Teléfono:</text>
+<rect x="220" y="530" width="560" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="228" y="550" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#333">(................)</text>
+<text x="220" y="594" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Correo:</text>
+<rect x="220" y="600" width="560" height="30" fill="#fff" stroke="#555" stroke-width="1.5" rx="0"/>
+<text x="228" y="620" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#333">(................)</text>
+<text x="220" y="646" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">Formato inválido.</text>
+<text x="220" y="680" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#222" font-weight="bold">(*) Documento duplicado: "Ya existe (regla por confirmar)."</text>
+<rect x="220" y="704" width="120" height="30" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="280.0" y="724" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#fff">[Guardar]</text>
+<rect x="350" y="704" width="320" height="30" fill="#ffffff" stroke="#333" stroke-width="1.5" rx="6"/>
+<text x="510.0" y="724" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Cancelar → origen sin guardar]</text>
+<text x="220" y="762" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">[Guardar] valida (RNF-11), conserva lo válido → aviso + detalle/lista.</text>
+<text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-04 · Formulario + validación — PATRÓN (V-04b y análogos)</text>
+<text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: según módulo (aquí Recep ●)  ·  Refs: RF-05/07 / CU-03  ·  Datos ficticios</text>
+</svg>
