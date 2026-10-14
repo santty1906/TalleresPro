@@ -1,0 +1,60 @@
+@startuml CU-13 Generar factura interna - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-13 Generar factura interna
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-13)
+' RF: RF-33. Relacion UML: <<extend>> de CU-11
+' (comportamiento opcional posterior al cobro).
+' Actor primario: Encargado administrativo.
+' Precondicion: existe un cobro registrado (CU-11) para la orden;
+' datos basicos de la orden disponibles. No incluye facturacion
+' gubernamental ni bancaria (fuera de alcance, seccion 1.5).
+' Postcondicion: factura interna generada, guardada y asociada
+' a la orden o cobro (R5).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-13 Generar factura interna - Diagrama de actividad
+
+legend right
+  Actor: Enc. administrativo
+  RF: RF-33 (extend de CU-11)
+  Pre: cobro registrado en CU-11
+  Post: factura con consecutivo asociada a orden/cobro
+endlegend
+
+|Encargado administrativo|
+start
+:Selecciona la orden o el cobro (V-10c);
+:Verifica los datos a facturar;
+:Solicita generar la factura interna;
+|Sistema TalleresPro|
+if (Orden sin cobro registrado?) then (si - E1)
+  :No genera la factura\ne indica registrar el cobro primero;
+  stop
+elseif (Datos incompletos para la factura?) then (si - E2)
+  :Indica que completar;
+  stop
+else (cobro y datos validos)
+endif
+:Asigna consecutivo unico, guarda la factura (R5)\ny la muestra;
+|Encargado administrativo|
+if (Requiere consulta posterior?) then (si - A1)
+  :Consulta o reimprime\nuna factura ya generada;
+else (no)
+endif
+:Verifica la factura generada;
+stop
+
+@enduml

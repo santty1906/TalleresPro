@@ -1,0 +1,54 @@
+@startuml CU-15 Consultar dashboard - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-15 Consultar dashboard
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-15), Esc-7
+' RF: RF-37, RF-38. Actor primario: Administrador.
+' Precondicion: administrador autenticado (CU-01).
+' Postcondicion: vision general del taller obtenida.
+' El dashboard resume ordenes, citas, inventario y finanzas.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-15 Consultar dashboard - Diagrama de actividad
+
+legend right
+  Actor: Administrador
+  RF: RF-37, RF-38
+  Pre: autenticado (CU-01)
+  Post: vision general del taller
+endlegend
+
+|Administrador|
+start
+:Accede al dashboard (V-02);
+|Sistema TalleresPro|
+:Presenta el resumen - trabajos pendientes,\ncitas del dia, productos con poco stock\ny totales financieros (RF-38);
+note right
+  E1: sin datos en un indicador -
+  muestra cero o sin registros en lugar de fallar
+  E2: error de carga de un indicador -
+  lo senala y mantiene visibles los demas
+end note
+|Administrador|
+:Revisa los indicadores;
+if (Requiere detalle?) then (si - A1)
+  :Navega desde un indicador hacia su modulo\n(ordenes, citas, inventario, finanzas);
+  :Consulta el detalle;
+else (no)
+endif
+:Obtiene la vision general del estado del taller;
+stop
+
+@enduml

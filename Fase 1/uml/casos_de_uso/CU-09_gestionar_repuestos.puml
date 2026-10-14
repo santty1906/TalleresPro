@@ -1,0 +1,66 @@
+@startuml CU-09 Gestionar repuestos - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-09 Gestionar repuestos
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-09)
+' RF: RF-19. Actor primario: Encargado de inventario
+' (secundario: Administrador).
+' Precondicion: usuario con acceso al modulo de inventario.
+' Postcondicion: repuesto creado o actualizado con stock minimo
+' definido (base del aviso de stock bajo en CU-10).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-09 Gestionar repuestos - Diagrama de actividad
+
+legend right
+  Actor: Enc. inventario (Admin: secundario)
+  RF: RF-19
+  Pre: acceso al modulo de inventario
+  Post: repuesto disponible para CU-10
+endlegend
+
+|Encargado de inventario|
+start
+:Accede al modulo de inventario (V-09);
+:Consulta o busca productos;
+if (Hay coincidencias?) then (no - A1)
+  |Sistema TalleresPro|
+  :Indica sin coincidencias\ny ofrece registrar la pieza;
+  |Encargado de inventario|
+else (si)
+endif
+if (Operacion?) then (registrar pieza nueva)
+  :Selecciona registrar pieza;
+  :Ingresa identificacion, stock inicial\ny stock minimo;
+else (editar existente)
+  :Selecciona una pieza existente;
+  :Edita sus datos;
+endif
+:Solicita guardar;
+|Sistema TalleresPro|
+if (Identificador o nombre duplicado?) then (si - E1)
+  :Advierte y no duplica;
+  stop
+elseif (Stock inicial o minimo invalido\nnegativo?) then (si - E2)
+  :Rechaza e indica el error;
+  stop
+else (valido)
+endif
+:Deja el repuesto disponible\npara movimientos (CU-10);
+|Encargado de inventario|
+:Verifica el repuesto en el inventario;
+stop
+
+@enduml

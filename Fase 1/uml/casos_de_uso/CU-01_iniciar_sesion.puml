@@ -1,0 +1,69 @@
+@startuml CU-01 Iniciar sesion - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-01 Iniciar sesion
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-01)
+' RF: RF-02. Actor primario: Todos (Administrador,
+' Recepcionista, Tecnico, Enc. inventario, Enc. administrativo).
+' Precondicion: usuario registrado y activo; pagina de acceso visible.
+' Postcondicion: sesion activa con permisos del rol (RNF-04, RNF-05).
+' CU-01 es precondicion de los demas CU, no <<include>>.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-01 Iniciar sesion - Diagrama de actividad
+
+legend right
+  Actor: cualquier usuario (los 5 roles)
+  RF: RF-02
+  Pre: registrado y activo + pagina de acceso
+  Post: sesion activa con permisos del rol
+endlegend
+
+|Usuario|
+start
+:Accede a la pagina de inicio de sesion;
+if (Existe sesion activa?) then (si - A1)
+  :Sistema redirige a la pagina inicial\nsin pedir credenciales;
+  stop
+else (no)
+endif
+:Ingresa correo y contrasena\ny solicita ingresar;
+note right
+  A2: cancela o abandona -
+  permanece en acceso sin crear sesion
+end note
+|Sistema TalleresPro|
+if (Campos vacios o formato invalido?) then (si - E3)
+  :Muestra mensaje claro indicando\nque dato corregir (RNF-02, RNF-11);
+  stop
+else (no)
+endif
+if (Credenciales correctas?) then (no - E1)
+  :Muestra mensaje de credenciales incorrectas (RNF-02)\ny no crea la sesion;
+  stop
+else (si)
+endif
+if (Cuenta activa y con acceso por rol?\nRF-04) then (no - E2)
+  :Deniega el ingreso e informa el motivo;
+  stop
+else (si)
+endif
+:Crea la sesion con el rol del usuario;
+:Muestra la pagina inicial\ncorrespondiente a su rol;
+|Usuario|
+:Accede a las funciones permitidas\nsegun su rol;
+stop
+
+@enduml

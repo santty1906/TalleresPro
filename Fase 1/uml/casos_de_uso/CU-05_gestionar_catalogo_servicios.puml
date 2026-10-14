@@ -1,0 +1,62 @@
+@startuml CU-05 Gestionar catalogo de servicios - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-05 Gestionar catalogo de servicios
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-05)
+' RF: RF-24, RF-25.
+' Actor primario: Administrador (pendiente de confirmacion, ver 6.5;
+' la Recepcionista usa el catalogo en CU-06 y CU-07).
+' Precondicion: administrador autenticado.
+' Postcondicion: servicio creado o actualizado con precio vigente,
+' disponible para citas y ordenes.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-05 Gestionar catalogo de servicios - Diagrama de actividad
+
+legend right
+  Actor: Administrador [P: confirmar responsable]
+  RF: RF-24, RF-25
+  Pre: administrador autenticado
+  Post: servicio disponible para CU-06 y CU-07
+endlegend
+
+|Administrador|
+start
+:Accede al catalogo de servicios (V-06);
+:Consulta, busca o filtra el catalogo (A1);
+if (Operacion?) then (crear nuevo)
+  :Selecciona crear servicio;
+else (editar existente)
+  :Selecciona un servicio existente;
+endif
+:Define nombre, descripcion y precio (RF-25);
+:Solicita guardar;
+|Sistema TalleresPro|
+if (Tiene permiso?) then (no - E2)
+  :Deniega la operacion;
+  stop
+else (si)
+endif
+if (Precio faltante, cero o negativo\n o nombre duplicado?) then (si - E1)
+  :Rechaza e indica el error;
+  stop
+else (valido)
+endif
+:Deja el servicio disponible\npara citas y ordenes;
+|Administrador|
+:Verifica el servicio en el catalogo;
+stop
+
+@enduml

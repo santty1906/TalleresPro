@@ -1,0 +1,64 @@
+@startuml CU-14 Generar reportes - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-14 Generar reportes
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-14)
+' RF: RF-34, RF-35, RF-36.
+' Actores primarios: Administrador, Encargado administrativo.
+' Precondicion: usuario con permiso de reportes; existen datos
+' y filtros (periodo, tipo).
+' Postcondicion: reporte del tipo solicitado visible con los
+' criterios aplicados. Exportacion pendiente (ver 6.5).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-14 Generar reportes - Diagrama de actividad
+
+legend right
+  Actores: Administrador + Enc. administrativo
+  RF: RF-34, RF-35, RF-36
+  Pre: permiso de reportes
+  Post: reporte visible con criterios aplicados
+endlegend
+
+|Usuario|
+start
+:Accede al modulo de reportes (V-11);
+:Elige el tipo - reparaciones (RF-34),\ninventario (RF-35) o financiero (RF-36);
+:Define filtros o rango de fechas;
+:Solicita generar el reporte;
+|Sistema TalleresPro|
+if (Tiene permiso de reportes?) then (no - E3)
+  :Deniega la operacion;
+  stop
+elseif (Rango o parametros invalidos?) then (si - E1)
+  :Indica que corregir;
+  stop
+else (parametros validos)
+endif
+if (Hay datos para los criterios?) then (no - E2)
+  :Informa que no hay datos\nen lugar de mostrar un reporte vacio;
+  stop
+else (si)
+endif
+:Muestra el reporte;
+|Usuario|
+if (Resultado vacio o muy amplio?) then (si - A1)
+  :Ajusta filtros y regenera;
+else (conforme)
+endif
+:Revisa el reporte generado;
+stop
+
+@enduml

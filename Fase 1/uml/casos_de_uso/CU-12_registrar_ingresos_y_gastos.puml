@@ -1,0 +1,59 @@
+@startuml CU-12 Registrar ingresos y gastos - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-12 Registrar ingresos y gastos
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-12)
+' RF: RF-31, RF-32. Actor primario: Encargado administrativo.
+' Precondicion: usuario con acceso al modulo financiero.
+' Postcondicion: ingreso o gasto registrado y disponible
+' para reportes (CU-14) y dashboard (CU-15).
+' Distintos de los cobros de ordenes (CU-11).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-12 Registrar ingresos y gastos - Diagrama de actividad
+
+legend right
+  Actor: Enc. administrativo
+  RF: RF-31, RF-32
+  Pre: acceso al modulo financiero
+  Post: movimiento disponible para CU-14 y CU-15
+endlegend
+
+|Encargado administrativo|
+start
+:Accede al modulo financiero (V-10b);
+if (Tipo?) then (ingreso - RF-31)
+  :Elige registrar un ingreso;
+else (gasto - RF-32)
+  :Elige registrar un gasto;
+endif
+:Ingresa concepto, monto y fecha;
+:Solicita guardar;
+|Sistema TalleresPro|
+if (Monto invalido o concepto vacio?) then (si - E1)
+  :Rechaza e indica el error;
+  stop
+else (valido)
+endif
+:Confirma y deja el movimiento\ndisponible para reportes;
+|Encargado administrativo|
+if (Requiere consulta?) then (si - A1)
+  :Consulta ingresos y gastos registrados\npor periodo o concepto;
+else (no)
+endif
+:Verifica el movimiento registrado;
+stop
+
+@enduml

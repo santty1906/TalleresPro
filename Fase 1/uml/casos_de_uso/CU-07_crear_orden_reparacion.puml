@@ -1,0 +1,73 @@
+@startuml CU-07 Crear orden de reparacion - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-07 Crear orden de reparacion
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-07), Esc-3
+' RF: RF-13, RF-14, RF-15. Actor primario: Recepcionista.
+' Precondicion: cliente y vehiculo registrados; usuario autenticado;
+' catalogo de servicios disponible si se seleccionan servicios.
+' Postcondicion: orden creada en estado Recibido,
+' vinculada a cliente y vehiculo.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-07 Crear orden de reparacion - Diagrama de actividad
+
+legend right
+  Actor: Recepcionista
+  RF: RF-13, RF-14, RF-15
+  Pre: cliente + vehiculo registrados
+  Post: orden en estado Recibido
+endlegend
+
+|Recepcionista|
+start
+if (Origen?) then (desde cita existente - A1/CU-06)
+  :Selecciona la cita;
+  :El sistema precarga cliente, vehiculo y servicio;
+else (directa)
+  :Selecciona al cliente (RF-14);
+  :Selecciona al vehiculo (RF-14);
+endif
+|Sistema TalleresPro|
+if (Cliente o vehiculo no registrado?) then (si - E1)
+  :No crea la orden;
+  stop
+else (registrados)
+endif
+|Recepcionista|
+:Crea una orden nueva (RF-13);
+:Registra el problema informado por el cliente (RF-15);
+if (Servicios definidos?) then (si)
+  :Selecciona los servicios correspondientes;
+else (no - A2)
+  note right
+    A2: orden sin servicios definidos todavia -
+    quedan pendientes para el diagnostico (CU-08)
+  end note
+endif
+:Solicita guardar;
+|Sistema TalleresPro|
+if (Problema informado vacio\nu otro dato obligatorio faltante?) then (si - E2)
+  :Indica que completar;
+  stop
+else (valido)
+endif
+:Crea la orden con estado inicial Recibido;
+:Confirma la orden vinculada\na cliente y vehiculo;
+|Recepcionista|
+:Verifica la orden creada;
+stop
+
+@enduml

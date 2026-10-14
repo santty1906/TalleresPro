@@ -1,0 +1,78 @@
+@startuml CU-06 Gestionar citas - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-06 Gestionar citas
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-06)
+' RF: RF-26, RF-27, RF-28. Actor primario: Recepcionista.
+' Precondicion: cliente, vehiculo y (cuando aplique)
+' servicio existentes.
+' Postcondicion: cita agendada, modificada o cancelada;
+' agenda actualizada. La orden se crea en CU-07 (A2).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-06 Gestionar citas - Diagrama de actividad
+
+legend right
+  Actor: Recepcionista
+  RF: RF-26, RF-27, RF-28
+  Pre: cliente + vehiculo (+ servicio si aplica)
+  Post: agenda actualizada
+endlegend
+
+|Recepcionista|
+start
+:Accede a la agenda (V-07);
+:Consulta la agenda del dia o por filtros (RF-28);
+if (Operacion?) then (agendar nueva - RF-26)
+  :Indica cliente, vehiculo, servicio,\nfecha y hora;
+  :Solicita guardar;
+  |Sistema TalleresPro|
+  if (Cliente, vehiculo o servicio inexistente?) then (si - E2)
+    :No agenda;
+    stop
+  elseif (Traslape de horario o fecha-hora\ninvalida o pasada?) then (si - E1)
+    :Rechaza e indica el error;
+    stop
+  else (disponible y valido)
+  endif
+  :Guarda y confirma la cita;
+else (editar o cancelar existente - RF-27)
+  :Selecciona una cita existente;
+  if (Tipo de cambio?) then (reprogramar - A1)
+    :Cambia fecha u hora\nmanteniendo el resto de los datos;
+  else (editar datos o cancelar)
+    :Edita los datos o solicita cancelar;
+  endif
+  :Solicita guardar;
+  |Sistema TalleresPro|
+  if (Cita ya atendida o ya cancelada?) then (si - E3)
+    :Advierte y no duplica la accion;
+    stop
+  elseif (Traslape o fecha-hora invalida?) then (si - E1)
+    :Rechaza e indica el error;
+    stop
+  else (valido)
+  endif
+  :Actualiza la agenda;
+endif
+|Recepcionista|
+note right
+  A2: la cita puede quedar sin orden asociada
+  todavia (la orden se crea en CU-07)
+end note
+:Verifica la cita en la agenda;
+stop
+
+@enduml

@@ -1,0 +1,87 @@
+@startuml CU-04 Gestionar vehiculos y consultar historial - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-04 Gestionar vehiculos y consultar historial
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-04), Esc-2
+' RF: RF-09, RF-10, RF-11, RF-12.
+' Actor primario: Recepcionista (secundario: Administrador;
+' el Tecnico consulta el historial desde CU-08).
+' Precondicion: el cliente existe y esta activo.
+' Postcondicion: vehiculo vinculado al cliente;
+' historial consultable para ordenes futuras.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-04 Gestionar vehiculos y consultar historial - Diagrama de actividad
+
+legend right
+  Actor: Recepcionista (Admin: secundario)
+  RF: RF-09, RF-10, RF-11, RF-12
+  Pre: cliente existe y esta activo
+  Post: vehiculo vinculado + historial consultable
+endlegend
+
+|Recepcionista|
+start
+:Busca y selecciona al cliente;
+|Sistema TalleresPro|
+if (Cliente existe y esta activo?) then (no - E2)
+  :No permite vincular el vehiculo;
+  stop
+else (si)
+endif
+|Recepcionista|
+if (Operacion?) then (registrar nuevo - RF-09)
+  :Selecciona agregar vehiculo;
+  :Ingresa marca, modelo, anio, placa\ny demas datos;
+  :Solicita guardar;
+  |Sistema TalleresPro|
+  if (Placa duplicada o datos invalidos?) then (si - E1)
+    :Rechaza e indica el error;
+    stop
+  else (validos)
+  endif
+  :Vincula el vehiculo al cliente y confirma;
+else (gestionar existente)
+  if (Solo consultar lista?) then (si - A1)
+    :Lista o busca vehiculos guardados (RF-10);
+  else (editar - RF-11)
+    :Selecciona un vehiculo existente;
+    :Edita marca, modelo, anio, placa y demas datos;
+    :Solicita guardar;
+    |Sistema TalleresPro|
+    if (Placa duplicada o datos invalidos?) then (si - E1)
+      :Rechaza e indica el error;
+      stop
+    else (validos)
+    endif
+    :Confirma la actualizacion;
+  endif
+endif
+|Recepcionista|
+if (Requiere historial?) then (si - RF-12)
+  :Solicita el historial de reparaciones\ndel vehiculo;
+  |Sistema TalleresPro|
+  if (Historial vacio?) then (si - A2)
+    :Indica que no hay reparaciones registradas;
+  else (con ordenes)
+    :Muestra las ordenes del vehiculo;
+  endif
+else (no)
+endif
+|Recepcionista|
+:Verifica el vehiculo en el perfil del cliente;
+stop
+
+@enduml

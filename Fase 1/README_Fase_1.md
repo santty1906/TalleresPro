@@ -348,6 +348,8 @@ Notas:
 
 Fuente normativa del diagrama: [`diagrama_casos_uso.puml`](./diagrama_casos_uso.puml) (PlantUML, formato texto, mismo directorio que este documento).
 
+Diagramas individuales por caso de uso: un diagrama de actividad por CU (CU-01 a CU-15, con su PNG renderizado) en [`uml/casos_de_uso/`](./uml/casos_de_uso/) (ver su `README.md`). Complementan este diagrama general sin reemplazarlo.
+
 Se eligió PlantUML porque representa correctamente la semántica UML de casos de uso (actor, frontera del sistema, `usecase`, `include`/`extend`), mientras que Mermaid no ofrece un tipo nativo de diagrama de casos de uso. No se incluye imagen generada: este archivo `.puml` es la fuente. Para visualizarlo, abrirlo con la extensión PlantUML de VS Code o pegarlo en un visor PlantUML. No se afirma que exista una imagen cuando solo existe la fuente.
 
 * Frontera del sistema: `TalleresPro`.

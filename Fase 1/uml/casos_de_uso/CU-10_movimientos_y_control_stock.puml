@@ -1,0 +1,76 @@
+@startuml CU-10 Registrar movimientos y controlar stock - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-10 Registrar movimientos y controlar stock
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-10), Esc-5
+' RF: RF-20, RF-21, RF-22, RF-23. Actor primario: Enc. de inventario.
+' Precondicion: el repuesto existe; usuario con acceso al modulo.
+' Postcondicion: movimiento registrado; stock actualizado (R1);
+' aviso emitido cuando aplica (R3).
+' Restricciones: R1 stock automatico, R2 salida con stock suficiente.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-10 Registrar movimientos y controlar stock - Diagrama de actividad
+
+legend right
+  Actor: Enc. inventario
+  RF: RF-20, RF-21, RF-22, RF-23
+  Pre: el repuesto existe
+  Post: stock actualizado + aviso si aplica
+endlegend
+
+|Encargado de inventario|
+start
+:Busca y selecciona el producto (V-09a);
+|Sistema TalleresPro|
+if (Producto existe y activo?) then (no - E3)
+  :No registra el movimiento;
+  stop
+else (si)
+endif
+|Encargado de inventario|
+if (Tipo de movimiento?) then (entrada - A2/RF-20)
+  note right
+    A2: entrada por compra o ajuste de inventario
+  end note
+  :Registra una entrada indicando la cantidad;
+else (salida - RF-21)
+  note right
+    A1: salida general o asociada a una orden
+    (consumo en reparacion)
+  end note
+  :Registra una salida indicando la cantidad\ny, si aplica, la orden de reparacion;
+endif
+:Confirma la operacion;
+|Sistema TalleresPro|
+if (Cantidad cero o negativa?) then (si - E1)
+  :Rechaza;
+  stop
+elseif (Es salida y cantidad mayor que el stock?) then (si - E2/R2)
+  :No descuenta e informa el disponible;
+  stop
+else (valido)
+endif
+:Suma o descuenta el stock automaticamente (R1/RF-22);
+if (Stock igual o por debajo del minimo?) then (si - RF-23/R3)
+  :Muestra el aviso de stock bajo (V-09d);
+else (no)
+endif
+:Confirma el movimiento registrado;
+|Encargado de inventario|
+:Verifica stock actualizado;
+stop
+
+@enduml

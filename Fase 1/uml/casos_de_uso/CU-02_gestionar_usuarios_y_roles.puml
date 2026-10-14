@@ -1,0 +1,71 @@
+@startuml CU-02 Gestionar usuarios y roles - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-02 Gestionar usuarios y roles
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-02)
+' RF: RF-01, RF-03, RF-04. Actor primario: Administrador.
+' Precondicion: administrador autenticado (CU-01) con permiso.
+' Postcondicion: usuario creado o actualizado con rol y accesos vigentes.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-02 Gestionar usuarios y roles - Diagrama de actividad
+
+legend right
+  Actor: Administrador
+  RF: RF-01, RF-03, RF-04
+  Pre: autenticado (CU-01) con permiso
+  Post: usuario con rol y accesos vigentes
+endlegend
+
+|Administrador|
+start
+:Accede al modulo de usuarios (V-03);
+:Consulta la lista de usuarios;
+note right
+  A2: busqueda o filtrado sin resultados -
+  el sistema lo indica y permite limpiar el filtro
+end note
+if (Operacion?) then (registrar nuevo)
+  :Selecciona registrar usuario nuevo;
+else (seleccionar existente)
+  :Selecciona un usuario existente\npara editar o gestionar accesos;
+endif
+:Ingresa o actualiza datos\ny asigna un rol;
+note right
+  A1: bloquear o desbloquear accesos por rol -
+  se aplican en el siguiente ingreso
+end note
+:Solicita guardar;
+|Sistema TalleresPro|
+if (Tiene permiso de administracion?) then (no - E3)
+  :Deniega la operacion;
+  stop
+else (si)
+endif
+if (Correo duplicado o datos invalidos?) then (si - E1)
+  :Rechaza el guardado e indica el error (RNF-02);
+  stop
+elseif (Rol inexistente?) then (si - E2)
+  :No asigna y pide seleccionar un rol valido;
+  stop
+else (datos y rol validos)
+endif
+:Aplica los accesos correspondientes al rol (RF-04);
+:Confirma usuario creado o actualizado;
+|Administrador|
+:Verifica el usuario en la lista;
+stop
+
+@enduml

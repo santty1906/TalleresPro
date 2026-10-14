@@ -1,0 +1,79 @@
+@startuml CU-03 Gestionar clientes - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-03 Gestionar clientes
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-03), Esc-1
+' RF: RF-05, RF-06, RF-07, RF-08.
+' Actor primario: Recepcionista (secundario: Administrador).
+' Precondicion: usuario autenticado con acceso al modulo de clientes.
+' Postcondicion: cliente registrado, actualizado o desactivado;
+' disponible para vincular vehiculos (CU-04).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-03 Gestionar clientes - Diagrama de actividad
+
+legend right
+  Actor: Recepcionista (Admin: secundario)
+  RF: RF-05, RF-06, RF-07, RF-08
+  Pre: autenticado con acceso al modulo
+  Post: cliente disponible para CU-04
+endlegend
+
+|Recepcionista|
+start
+:Accede al modulo de clientes (V-04)\ny consulta la lista o busca por criterio (RF-06);
+if (Hay coincidencias?) then (no - A2)
+  |Sistema TalleresPro|
+  :Indica sin coincidencias\ny ofrece registrar al cliente;
+  |Recepcionista|
+else (si)
+endif
+if (Operacion?) then (registrar nuevo)
+  :Selecciona registrar cliente;
+  :Ingresa los datos del cliente (RF-05);
+else (editar existente)
+  :Selecciona un cliente existente;
+  :Edita los datos (RF-07);
+endif
+if (Desactivar en lugar de editar?) then (si - A1/RF-08)
+  :Solicita desactivar el cliente;
+  |Sistema TalleresPro|
+  :Pide confirmacion;
+  if (Cliente con ordenes activas?) then (si - E3 [P])
+    :Advierte antes de confirmar\n(regla por definir, ver 6.5);
+    stop
+  else (no)
+    :Marca el registro como inactivo;
+    :Confirma desactivacion;
+    stop
+  endif
+else (no - guardar datos)
+  :Solicita guardar;
+endif
+|Sistema TalleresPro|
+if (Registro duplicado segun regla pendiente\ndel equipo [P]? (E2)) then (si - E2)
+  :Advierte y no duplica;
+  stop
+elseif (Datos obligatorios faltantes o invalidos?) then (si - E1)
+  :Indica que corregir (RNF-02, RNF-11);
+  stop
+else (validos)
+endif
+:Confirma y deja el registro disponible;
+|Recepcionista|
+:Verifica el cliente registrado o actualizado;
+stop
+
+@enduml

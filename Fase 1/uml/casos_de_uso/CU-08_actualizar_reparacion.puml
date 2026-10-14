@@ -1,0 +1,86 @@
+@startuml CU-08 Actualizar reparacion - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-08 Actualizar reparacion
+' (diagnostico, tareas, estados y consulta)
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-08), Esc-4
+' RF: RF-16, RF-17, RF-18.
+' Actor primario: Tecnico. Secundarios (solo consulta):
+' Recepcionista, Administrador.
+' Precondicion: la orden existe (normalmente en Recibido o
+' En reparacion); tecnico autenticado.
+' Postcondicion: orden con diagnostico, tareas y estado
+' actualizados; consultable por roles autorizados.
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-08 Actualizar reparacion - Diagrama de actividad
+
+legend right
+  Actor: Tecnico (Recep/Admin: solo consulta)
+  RF: RF-16, RF-17, RF-18
+  Pre: la orden existe
+  Post: orden actualizada y consultable
+endlegend
+
+|Usuario|
+start
+:Consulta sus ordenes asignadas\no busca una orden (V-08a);
+|Sistema TalleresPro|
+if (Orden existe?) then (no - E1)
+  :Indica que la orden no existe;
+  stop
+else (si)
+endif
+:Muestra la orden;
+|Usuario|
+if (Proposito?) then (solo consulta - A1)
+  note right
+    A1: Recepcionista, Administrador o Tecnico
+    pueden buscar y ver ordenes sin modificarlas
+    E3: rol no tecnico solo tiene lectura
+  end note
+  :Revisa diagnostico, tareas y estado\n(solo consulta);
+  stop
+else (actualizar)
+endif
+|Sistema TalleresPro|
+if (Rol con permiso de edicion?\nSolo el Tecnico edita) then (no - E3)
+  :Permite solo lectura;
+  |Usuario|
+  :Revisa diagnostico, tareas y estado\n(solo consulta);
+  stop
+else (si - tecnico)
+endif
+|Tecnico|
+:Selecciona la orden;
+:Registra o actualiza el diagnostico\ny las tareas a realizar (RF-16);
+note right
+  A2: actualizacion incremental -
+  tareas o estado en varias sesiones
+end note
+:Cambia el estado del trabajo\n(Recibido, En reparacion, Listo) (RF-17);
+:Solicita guardar;
+|Sistema TalleresPro|
+if (Transicion de estado invalida\no cierre sin diagnostico?) then (si - E2 [P])
+  :Valida e informa\n(regla por definir, ver 6.5);
+  stop
+else (valido)
+endif
+:Muestra la orden actualizada;
+|Tecnico|
+:Verifica diagnostico, tareas y estado;
+stop
+
+@enduml

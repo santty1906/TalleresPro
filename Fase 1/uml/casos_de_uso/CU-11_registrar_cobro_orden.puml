@@ -1,0 +1,70 @@
+@startuml CU-11 Registrar cobro de orden - Diagrama de actividad
+' ============================================================
+' TalleresPro - Fase 1, CU-11 Registrar cobro de orden
+' Fuente: Fase 1/README_Fase_1.md, seccion 6.3 (CU-11), Esc-6
+' RF: RF-29, RF-30. Actor primario: Encargado administrativo.
+' Precondicion: la orden existe con un total definido.
+' Postcondicion: pago registrado; saldo pendiente actualizado.
+' Restriccion R4: saldo = total menos suma de pagos.
+' Sobrepago (E1): regla por definir (ver 6.5).
+' ============================================================
+
+skinparam activity {
+  BackgroundColor white
+  BorderColor black
+  ArrowColor black
+}
+skinparam note {
+  BackgroundColor #FEFECE
+}
+skinparam legend {
+  BackgroundColor #FEFECE
+  BorderColor black
+}
+
+title CU-11 Registrar cobro de orden - Diagrama de actividad
+
+legend right
+  Actor: Enc. administrativo
+  RF: RF-29, RF-30
+  Pre: orden con total definido
+  Post: pago registrado + saldo actualizado
+endlegend
+
+|Encargado administrativo|
+start
+:Busca la orden de reparacion;
+|Sistema TalleresPro|
+if (Orden existe y con total definido?) then (no - E2)
+  :No registra el cobro;
+  stop
+else (si)
+endif
+:Muestra total y saldo pendiente (R4);
+|Encargado administrativo|
+:Ingresa el monto recibido\ny el metodo de pago;
+:Confirma el pago;
+|Sistema TalleresPro|
+if (Metodo de pago no seleccionado?) then (si - E3)
+  :Pide completarlo;
+  stop
+elseif (Monto invalido?) then (si - E1)
+  :Valida e informa;
+  stop
+elseif (Monto mayor que el saldo?) then (si - E1 sobrepago [P])
+  :Valida e informa\n(regla por definir, ver 6.5);
+  stop
+else (monto y metodo validos)
+endif
+:Registra el pago y recalcula el saldo pendiente;
+if (Saldo restante?) then (cero - A2 pago total)
+  :Marca la orden como pagada;
+else (mayor que cero - A1 pago parcial)
+  :Deja el saldo restante pendiente\npara futuros cobros;
+endif
+:Confirma el cobro;
+|Encargado administrativo|
+:Verifica pago y saldo actualizado;
+stop
+
+@enduml
