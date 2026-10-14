@@ -10,28 +10,4 @@
 | Prototipo visual | [Por completar por el equipo: nombre(s)] | Muse Spark (Meta) vía OpenCode / [Agregar enlace a la sesión o prompt utilizado] | Apoyo en código HTML/CSS/JS vainilla con datos ficticios, navegación clicable y filtrado por rol de demostración | Prueba navegable, revisión de textos y defensa individual (por confirmar por el equipo) |
 | Matriz de coherencia Fase 1 → Fase 2 | [Por completar por el equipo: nombre(s)] | Muse Spark (Meta) vía OpenCode / [Agregar enlace a la sesión o prompt utilizado] | Apoyo en el cruce RF/RNF/Esc/CU/V/roles/clases contra pantallas y decisiones | Confirmación de que ningún “Confirmado” oculta un pendiente (por confirmar por el equipo) |
 
-## Notas de autoría y transparencia
 
-1. **Nombres y aportes pendientes.** La documentación del repositorio no
-   permite atribuir secciones de Fase 2 a integrantes concretos (la tabla de
-   Fase 1 corresponde a secciones de Fase 1). Por eso esta tabla usa
-   marcadores explícitos en lugar de inventar atribuciones. El equipo debe
-   completar cada fila antes de la entrega y la defensa individual.
-2. **Uso de IA declarado.** En Fase 2 se usó asistencia de IA (Muse Spark de
-   Meta, a través de OpenCode) para estructurar documentos, redactar fuentes
-   de diagramas PlantUML, generar las ilustraciones de wireframes y apoyar el
-   código del prototipo. Ningún artefacto se presenta como escrito totalmente
-   a mano. Las decisiones de diseño, los permisos por rol y las reglas de
-   negocio pendientes (P-01/P-02/P-03 y §5 de la matriz de coherencia) son
-   propiedad del equipo y requieren su confirmación explícita.
-3. **Validación registrada (evidencia en el repositorio).** Se ejecutaron
-   comprobaciones locales y quedaron registradas en
-   `Fase 2/exports/README_exports.md`: sintaxis JS (`node --check`), parseo
-   HTML, 27/28 aserciones de navegación en Chrome headless (12 pantallas,
-   login demo, filtrado por rol, validaciones de stock y sobrepago),
-   validez de PNG/SVG y de las 13 ilustraciones de wireframes. La revisión
-   académica final y la defensa individual quedan a cargo del equipo
-   (ver lista de comprobación en `Fase 2/README_Fase_2.md` §8).
-4. **Alcance no ampliado.** Fase 2 no crea requisitos, roles, permisos ni
-   reglas nuevas; las propuestas van marcadas como tales y los pendientes
-   heredados de Fase 1 (§§6.5/7.8/8.7) se mantienen visibles en cada artefacto.
