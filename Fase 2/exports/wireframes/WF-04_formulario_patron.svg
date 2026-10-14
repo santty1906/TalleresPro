@@ -13,7 +13,7 @@
 <text x="36" y="194" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Clientes › Nuevo (o Editar)</text>
 <rect x="40" y="208" width="1120" height="64" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
 <text x="50" y="232" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">PATRÓN compartido por: V-04b · V-05b · V-03b · V-06b · V-07b · V-09b. Ejemplo dibujado con Cliente.</text>
-<text x="50" y="252" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Campos mínimos §7.4: nombre, documento, teléfono, correo, activo. Unicidad [Pendiente] §7.8 n.º 5.</text>
+<text x="50" y="252" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Campos mínimos Sección 7.4: nombre, documento, teléfono, correo, activo. Unicidad [Pendiente] Sección 7.8 n.º 5.</text>
 <rect x="180" y="286" width="840" height="44" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
 <text x="200" y="314" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555" font-style="italic"># resumen: "Revisa 2 campos: Documento, Correo." (foco al primero) #</text>
 <text x="220" y="374" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Nombre (*):</text>

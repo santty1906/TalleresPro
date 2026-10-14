@@ -16,24 +16,24 @@
 
 | Deliverable Fase 2 | Archivo(s) | Qué contiene |
 |---|---|---|
-| D1 Arquitectura de información | `Fase 2/arquitectura_informacion.md` | Dominios, jerarquía, etiquetas, accesos, relaciones, roles, globales, estados, trazabilidad §11 |
+| D1 Arquitectura de información | `Fase 2/arquitectura_informacion.md` | Dominios, jerarquía, etiquetas, accesos, relaciones, roles, globales, estados, trazabilidad Sección 11 |
 | D2 Sitemap | `Fase 2/sitemap_fase_2.puml` | Jerarquía V-01–V-11, cruzadas, drill-down, leyenda, P-01 |
-| D3 Navegación actualizada | `Fase 2/modelo_navegacion_fase_2.puml` + `Fase 2/modelo_navegacion_fase_2.md` (§§1–9, bitácora §8) | Primaria/secundaria, migas, retornos, roles, 403, F1→FL |
+| D3 Navegación actualizada | `Fase 2/modelo_navegacion_fase_2.puml` + `Fase 2/modelo_navegacion_fase_2.md` (Sección 1–9, bitácora Sección 8) | Primaria/secundaria, migas, retornos, roles, 403, F1→FL |
 | D4 Flujos principales | `Fase 2/flujos_navegacion.puml` (FL-01 + índice) + `flujos_atencion.puml` (FL-02–04) + `flujos_operacion.puml` (FL-05–07) + `flujos_gestion.puml` (FL-08/09) + `flujos_navegacion.md` (FL-01–09 + secundarios) | Actor, inicio, pasos, A/E, fin, RF/CU/Esc |
 | D5 Wireframes | `Fase 2/wireframes.md` (WF-01–13) | ID, propósito, roles, RF/CU/Esc, ASCII, interacciones, estados |
 | D6 Prototipo visual | `Fase 2/prototipo/index.html` + `styles.css` + `app.js` (PT-01–12; PT-11 Citas y PT-12 Servicios son vistas propias) | Sistema visual, datos ficticios, navegación clicable, estados demo, responsive, accesible |
-| Trazabilidad y modelos | `Fase 2/matriz_coherencia_fase_1_fase_2.md` (§§1–6) | RF/RNF/Esc/CU/V/roles/clases → pantalla; actualizaciones sin tocar originales; 12 pendientes |
+| Trazabilidad y modelos | `Fase 2/matriz_coherencia_fase_1_fase_2.md` (Sección 1–6) | RF/RNF/Esc/CU/V/roles/clases → pantalla; actualizaciones sin tocar originales; 12 pendientes |
 | Este índice | `Fase 2/README_Fase_2.md` | Alcance, archivos, preview, render, orden PDF, checklist |
 
 Correspondencia pantallas: `V-xx` (Fase 1) ↔ `WF-xx` (wireframes) ↔ `PT-xx`
-(prototipo). Ver tablas de cobertura en `wireframes.md` y `matriz_*.md §6`.
+(prototipo). Ver tablas de cobertura en `wireframes.md` y `matriz_*.md Sección 6`.
 
 ## 3. Relación con Fase 1
 
 - Se conserva todo: 38 RF, 12 RNF, 7 escenarios, 15 CU, 11 vistas, 15 clases,
   5 roles, IDs y vocabulario. Sin renumerar ni redefinir.
-- Se retiene la estructura §8.3–§8.5 (módulos, cruzadas F2–F5, drill-down A1,
-  matriz §8.4 ●/◐/—). Solo se añade *cómo se recorre* (migas, Guardar/Cancelar/
+- Se retiene la estructura Sección 8.3–Sección 8.5 (módulos, cruzadas F2–F5, drill-down A1,
+  matriz Sección 8.4 ●/◐/—). Solo se añade *cómo se recorre* (migas, Guardar/Cancelar/
   Volver, confirmaciones, 403, solo-lectura, P-01 provisional).
 - `Fase 1/` intacto: este trabajo solo crea `Fase 2/`. La independencia del PDF
   de Fase 1 (enlace OneDrive del README raíz) y `Fase 1/Autoria Fase 1.md` se

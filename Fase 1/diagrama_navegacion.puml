@@ -33,7 +33,7 @@ skinparam note {
 
 left to right direction
 
-' ---- Actores (solo accesos principales; ver matriz §8.4) ----
+' ---- Actores (solo accesos principales; ver matriz Sección 8.4) ----
 actor "Administrador" as Admin
 actor "Recepcionista" as Recep
 actor "Técnico" as Tec
@@ -156,7 +156,7 @@ A_L ..> Dash : alimenta
 Stock ..> Dash : alimenta
 F_IG ..> Dash : alimenta
 
-' ---- Accesos principales por rol (punteado; detalle en §8.4) ----
+' ---- Accesos principales por rol (punteado; detalle en Sección 8.4) ----
 ' Todos se autentican (CU-01).
 Admin ..> Login
 Recep ..> Login
@@ -185,14 +185,14 @@ Admvo ..> F_IG
 Admvo ..> F_F
 Admvo ..> R_S
 
-' Consultas secundarias documentadas en §8.4:
+' Consultas secundarias documentadas en Sección 8.4:
 ' Recepcionista y Administrador consultan O_D;
 ' Encargado administrativo e Inventario consultan O_L;
 ' Administrador consulta Inventario y Finanzas.
 ' No se dibujan para evitar saturación; ver matriz.
 
 note bottom of F_F
-  Decisiones (ver §8.7):
+  Decisiones (ver Sección 8.7):
   - V-02 completo solo Admin (CU-15);
     el resto parte de sus módulos.
   - V-06 gestión solo Admin propuesto;

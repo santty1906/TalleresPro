@@ -69,7 +69,7 @@
 <text x="838.0" y="580" font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#222">[Crear orden desde cita]</text>
 <rect x="56" y="602" width="920" height="56" fill="#fafafa" stroke="#777" stroke-width="1.5" rx="0" stroke-dasharray="6,4"/>
 <text x="66" y="626" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Cancelar cita pide confirmación (RF-27); atendida/cancelada no se duplica (E3).</text>
-<text x="66" y="646" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Traslapes, duración y estados [Pendiente] (CU-06 E1, §7.8 n.º 7).</text>
+<text x="66" y="646" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Traslapes, duración y estados [Pendiente] (CU-06 E1, Sección 7.8 n.º 7).</text>
 <text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-10 · Citas: agenda y formulario (V-07a–b)</text>
 <text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">Roles: Recep ●, Admin ●  ·  RF-26–28 / CU-06  ·  Datos ficticios</text>
 </svg>

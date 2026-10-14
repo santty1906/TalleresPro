@@ -1,9 +1,9 @@
 @startuml TalleresPro - Modelo de navegacion Fase 2
 ' ============================================================
 ' TalleresPro - Fase 2, Deliverable 3: Modelo de navegacion actualizado
-' Base: Fase 1 diagrama_navegacion.puml + §8.3-§8.5. Conserva los
+' Base: Fase 1 diagrama_navegacion.puml + Sección 8.3-Sección 8.5. Conserva los
 ' 11 modulos y subvistas; anade: migas, retorno/cancelar/guardar,
-' 403/404, filtrado de menu por rol y bitacora de cambios (§9 de
+' 403/404, filtrado de menu por rol y bitacora de cambios (Sección 9 de
 ' modelo_navegacion_fase_2.md). Flecha continua = navegacion;
 ' punteada = acceso por rol / drill-down / alimentacion.
 ' Fuente normativa: este .puml + modelo_navegacion_fase_2.md
@@ -144,7 +144,7 @@ M_F ..> P_L : "confirmar/volver"
 F_C ..> O_D : "volver"
 R_R ..> R_S : "ajustar filtros"
 
-' Roles (primarios; detalle en .md §4)
+' Roles (primarios; detalle en .md Sección 4)
 Admin ..> Login
 Recep ..> Login
 Tec ..> Login
@@ -173,7 +173,7 @@ F_C ..> E403 : "sin rol"
 O_L ..> E404 : "URL inexistente\n(ejemplo)"
 
 note bottom of F_F
-  Cambios vs Fase 1 (§8 del .md):
+  Cambios vs Fase 1 (Sección 8 del .md):
   + Migas + Volver/Cancelar/Guardar explicitos
   + Inicio por rol P-01 (propuesta, pendiente)
   + 403/404 y solo-lectura explicitos

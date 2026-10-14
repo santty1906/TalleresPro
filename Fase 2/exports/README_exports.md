@@ -1,13 +1,13 @@
 # Fase 2 — Exports (diagramas y capturas para el PDF)
 
 > Generado el 2026-10-12. Fuentes `.puml` y prototipo intactos; nada se
-> reescribió para exportar. Pendientes P-01/P-02/P-03 y reglas §§6.5/7.8/8.7
+> reescribió para exportar. Pendientes P-01/P-02/P-03 y reglas Sección 6.5/7.8/8.7
 > siguen vigentes (ver matriz de coherencia).
 
 ## 1. Diagramas (PNG + SVG) — 6/6 renderizados con éxito
 
 Renderizador: servidor oficial de PlantUML (`https://www.plantuml.com/plantuml/{png,svg}/…`,
-el mismo de los pasos manuales de `README_Fase_2.md` §5), invocado con un
+el mismo de los pasos manuales de `README_Fase_2.md` Sección 5), invocado con un
 script de solo-librería-estándar. Sin instalaciones ni cambios de configuración.
 Cada PNG verificado (firma + dimensiones IHDR) y cada SVG validado como XML.
 
@@ -30,7 +30,7 @@ Navegador: Google Chrome headless (perfil temporal desechable, viewport
 mínimo de librería estándar. Cada captura se tomó con su pantalla afirmada
 como activa. Rol Administrador salvo `pt-rol-tecnico.png` (rol Técnico).
 Ninguna captura es fabricada; los bytes y dimensiones constan en el registro
-de la prueba (27/28 aserciones PASS, ver §3).
+de la prueba (27/28 aserciones PASS, ver Sección 3).
 
 | Archivo | Pantalla (rol) |
 |---|---|
@@ -56,7 +56,7 @@ de la prueba (27/28 aserciones PASS, ver §3).
 - T4: navegación a las 12 pantallas (menú + enlaces contextuales). PASS 9/9.
 - T5: `[Ver]` en Órdenes → detalle activo (V-08c). PASS; miga muestra el texto
   del botón (“Ver”) porque esos botones no llevan `data-crumb` — cosmético,
-  fuera de alcance, no se tocó el prototipo (ver §4).
+  fuera de alcance, no se tocó el prototipo (ver Sección 4).
 - T6: rol Técnico → menú solo Órdenes+Login; `[Nueva orden]` oculta;
   Recepcionista ve `[Registrar cliente]`; Administrador no lo ve (solo
   lectura). PASS 4/4.
@@ -79,7 +79,7 @@ esos dos botones (solo HTML, sin lógica).
 1. **Revisión visual** (10 min): abrir cada PNG/SVG y captura; comprobar que
    ningún diagrama quedó recortado (los altos — navegación 2530px, gestión
    2088px — pueden requerir página apaisada o escala 70–80% en el PDF).
-2. **Montar el PDF único** según `README_Fase_2.md` §7 (portada + §§D1–D6 +
+2. **Montar el PDF único** según `README_Fase_2.md` Sección 7 (portada + Sección D1–D6 +
    coherencia + pendientes + repo URL en el comentario). El PDF sigue pendiente:
    localmente solo hay `pandoc` sin motor LaTeX/HTML→PDF.
 3. **Verificación humana en 3 navegadores** (RNF-08: Chrome, Edge, Firefox) +

@@ -2,8 +2,8 @@
 ' ============================================================
 ' TalleresPro - Fase 2, Deliverable 2: Sitemap
 ' Fuente normativa del mapa del sitio.
-' Base: Fase 1 §8.3 (V-01..V-11 + subvistas), §8.4 (rol-vista),
-' matriz B1/E. No crea paginas nuevas fuera de §8.3 salvo las
+' Base: Fase 1 Sección 8.3 (V-01..V-11 + subvistas), Sección 8.4 (rol-vista),
+' matriz B1/E. No crea paginas nuevas fuera de Sección 8.3 salvo las
 ' tecnicas 403/404 marcadas <<tecnica>> (propuesta RNF-05).
 ' Etiquetas identicas a arquitectura_informacion.md, wireframes.md
 ' y prototipo/. Leyenda al final.
@@ -124,7 +124,7 @@ V09a --> V09c : "entrada / salida"
 V09c --> V09d : "stock <= minimo"
 V11a --> V11b : "generar"
 
-' ---- Cruzadas confirmadas (Fase 1 §8.5) ----
+' ---- Cruzadas confirmadas (Fase 1 Sección 8.5) ----
 V04c --> V05b : "agregar vehiculo"
 V05c --> V08b : "crear orden"
 V07a --> V08b : "crear orden\ndesde cita"

@@ -988,7 +988,7 @@ Nada se resolvió en silencio; lo siguiente requiere confirmación (además de l
 
 ## 9.1 Propósito
 
-Esta sección demuestra la consistencia entre objetivos, roles, requisitos (RF-01–RF-38, RNF-01–RNF-12), escenarios, casos de uso (CU-01–CU-15), clases (§7) y vistas (§8). La trazabilidad describe relaciones en la documentación; no prueba que el software esté implementado o probado.
+Esta sección demuestra la consistencia entre objetivos, roles, requisitos (RF-01–RF-38, RNF-01–RNF-12), escenarios, casos de uso (CU-01–CU-15), clases (Sección 7) y vistas (Sección 8). La trazabilidad describe relaciones en la documentación; no prueba que el software esté implementado o probado.
 
 ## 9.2 Notación e interpretación
 
@@ -996,19 +996,19 @@ Esta sección demuestra la consistencia entre objetivos, roles, requisitos (RF-0
 
 ## 9.3 Cobertura (conteos validados)
 
-* **RF → CU: 38/38.** Ningún RF sin caso de uso (§C, base §6.4 verificada).
-* **RF → clase: 38/38.** RF-37/38 solo lectura de insumos (vista derivada, §D1).
-* **RF → vista: 38/38.** RF-22/RF-23/RF-30 son reglas de fondo que la vista muestra (§E).
-* **RF con escenario: 14/38** (RF-05, 09, 13–18, 21, 22, 29, 30, 37, 38). Los 24 restantes tienen CU + clase + vista pero sin escenario dedicado (§C).
-* **RNF: 12/12** con alcance en §B2; los de calidad/compatibilidad son transversales sin clase directa única (§D2).
+* **RF → CU: 38/38.** Ningún RF sin caso de uso (Sección C, base Sección 6.4 verificada).
+* **RF → clase: 38/38.** RF-37/38 solo lectura de insumos (vista derivada, Sección D1).
+* **RF → vista: 38/38.** RF-22/RF-23/RF-30 son reglas de fondo que la vista muestra (Sección E).
+* **RF con escenario: 14/38** (RF-05, 09, 13–18, 21, 22, 29, 30, 37, 38). Los 24 restantes tienen CU + clase + vista pero sin escenario dedicado (Sección C).
+* **RNF: 12/12** con alcance en Sección B2; los de calidad/compatibilidad son transversales sin clase directa única (Sección D2).
 
 ## 9.4 Huecos y trazabilidad débil
 
-1. 24 RF sin escenario dedicado (listados en §C y §G de la matriz); el hueco es de escenificación, no de cobertura.
+1. 24 RF sin escenario dedicado (listados en Sección C y Sección G de la matriz); el hueco es de escenificación, no de cobertura.
 2. Reglas de fondo RF-22/RF-23/RF-30 trazadas a la vista que las muestra.
-3. Lecturas secundarias ◐ (RF-12/RF-18 y consultas de inventario/finanzas) explícitas en §B1; no se presentan como gestión.
-4. RNF-07 sin métrica y RNF transversales sin clase directa (reportado en §D2).
+3. Lecturas secundarias ◐ (RF-12/RF-18 y consultas de inventario/finanzas) explícitas en Sección B1; no se presentan como gestión.
+4. RNF-07 sin métrica y RNF transversales sin clase directa (reportado en Sección D2).
 
 ## 9.5 Decisiones pendientes que afectan la trazabilidad
 
-P-01 (punto de partida no administrador), P-02 (gestión de servicios por Recepcionista), P-03 (edición de V-08D por Admin), cardinalidad de factura, fórmula del total, sobrepago, transiciones de estado, citas, unicidades y permisos finos (detalle en §H de la matriz y §§6.5/7.8/8.7). Las celdas P permanecen pendientes; nada se resolvió artificialmente.
+P-01 (punto de partida no administrador), P-02 (gestión de servicios por Recepcionista), P-03 (edición de V-08D por Admin), cardinalidad de factura, fórmula del total, sobrepago, transiciones de estado, citas, unicidades y permisos finos (detalle en Sección H de la matriz y Sección 6.5/7.8/8.7). Las celdas P permanecen pendientes; nada se resolvió artificialmente.

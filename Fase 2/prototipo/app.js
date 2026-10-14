@@ -33,7 +33,7 @@ function filtrarPorRol() {
     b.style.display = ok ? '' : 'none';
   });
   // Acciones dentro de cada pantalla: solo visibles para los roles
-  // confirmados en la matriz Fase 1 §8.4 / B1 (● gestiona). Los roles
+  // confirmados en la matriz Fase 1 Sección 8.4 / B1 (● gestiona). Los roles
   // de solo lectura (◐) y los pendientes (P-02/P-03) no las ven.
   document.querySelectorAll('[data-solo]').forEach(el => {
     const ok = (el.dataset.solo || '').split(' ').includes(rol);

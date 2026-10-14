@@ -4,7 +4,7 @@
 > tiene ID WF-xx, propósito, roles, RF/CU/Esc, layout ASCII, interacciones,
 > destinos y estados. Etiquetas idénticas al sitemap y al prototipo
 > (PT-xx ↔ WF-xx ↔ V-xx). Los datos son ficticios. Pendientes P-01/P-02/P-03
-> y reglas §§6.5/7.8 se marcan donde aparecen. No se inventa ningún permiso.
+> y reglas Sección 6.5/7.8 se marcan donde aparecen. No se inventa ningún permiso.
 
 ## Convenciones
 
@@ -114,8 +114,8 @@
 ```
 - **Interacciones:** [Guardar] → valida (RNF-11) → éxito: aviso + V-04c/V-04a;
   fallo: permanece con errores y conserva lo válido. [Cancelar] → origen.
-- **Campos mínimos confirmados (§7.4):** Cliente: nombre, documento, teléfono,
-  correo, activo. Unicidad documento/correo **[Pendiente]** (§7.8 n.º 5).
+- **Campos mínimos confirmados (Sección 7.4):** Cliente: nombre, documento, teléfono,
+  correo, activo. Unicidad documento/correo **[Pendiente]** (Sección 7.8 n.º 5).
 - **Prototipo:** PT-03 (pestaña Nuevo/Editar simulada con validación demo).
 
 ## WF-05 — Detalle de cliente (V-04c)
@@ -222,10 +222,10 @@
 | Éxito: "Pago registrado. Saldo: S/ ..."                   |
 ```
 - **Ingresos/gastos (V-10b):** pestañas Ingresos | Gastos; lista + [Registrar]:
-  concepto (*), monto (> 0), fecha. Sin vínculo a orden (confirma §7.8 n.º 12).
+  concepto (*), monto (> 0), fecha. Sin vínculo a orden (confirma Sección 7.8 n.º 12).
 - **Factura (V-10c):** [Generar factura] solo si hay cobro (E1 si no);
   muestra consecutivo único + total coherente + [Reimprimir]. Interna simple,
-  sin alcance gubernamental/bancario (§1.5). Cardinalidad 0..1 **[Pendiente]**,
+  sin alcance gubernamental/bancario (Sección 1.5). Cardinalidad 0..1 **[Pendiente]**,
   moneda/impuestos **[Pendiente]**.
 - **Prototipo:** PT-08.
 
@@ -257,7 +257,7 @@
 | --- Resultado (V-11b) ---                                 |
 | Criterios aplicados + tabla + [Ajustar filtros]           |
 | Sin datos: "Sin datos para estos filtros. [Ajustar]."     |
-| [Exportar PDF/CSV — PENDIENTE, no prometido §6.5 n.º 10]  |
+| [Exportar PDF/CSV — PENDIENTE, no prometido Sección 6.5 n.º 10]  |
 ```
 - **Prototipo:** PT-09.
 
@@ -282,7 +282,7 @@
   ("Cargando…"), error con [Reintentar], 403 "Sin permiso.
   [Volver a mi inicio]", sesión requerida (→ V-01), confirmaciones
   (desactivar, cancelar cita, confirmar pago/movimiento). Ver tabla en
-  arquitectura_informacion.md §10. Cada WF indica cuáles aplica.
+  arquitectura_informacion.md Sección 10. Cada WF indica cuáles aplica.
 - **Prototipo:** barra de demostración "Estados" en cada pantalla
   (botones: Simular vacío / error / 403 / confirmación) — claramente
   etiquetados como demo, no datos reales.
@@ -308,4 +308,4 @@
 Vehículos (V-05a–c: RF-09–12 / CU-04 / Esc-2) se cubren con el patrón
 WF-03+WF-04 más WF-05 (detalle+historial) y el origen en WF-06; no se crea un
 WF separado para no duplicar el patrón. Citas sin escenario e ingresos/gastos
-sin escenario se cubren igual (matriz §C: tienen CU+vista, solo falta escenario).
+sin escenario se cubren igual (matriz Sección C: tienen CU+vista, solo falta escenario).

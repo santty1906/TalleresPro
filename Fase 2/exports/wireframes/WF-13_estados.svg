@@ -4,7 +4,7 @@
 <rect x="0" y="0" width="1200" height="58" fill="#333"/>
 <rect x="24" y="100" width="1152" height="40" fill="#e4e4e4" stroke="#222" stroke-width="1.5" rx="0"/>
 <text x="36" y="126" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">TalleresPro  |  Usuario (rol)  |  [Salir]</text>
-<text x="40" y="166" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Patrón transversal — aplica en cada WF según tabla de arquitectura §10.</text>
+<text x="40" y="166" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Patrón transversal — aplica en cada WF según tabla de arquitectura Sección 10.</text>
 <rect x="40" y="184" width="265" height="120" fill="#fff" stroke="#222" stroke-width="1.5" rx="8"/>
 <text x="52" y="210" font-family="Arial,sans-serif" font-size="14" text-anchor="start" fill="#222" font-weight="bold">Lista vacía</text>
 <text x="52" y="234" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">"Sin registros.</text>

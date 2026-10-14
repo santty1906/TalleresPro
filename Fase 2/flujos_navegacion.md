@@ -4,8 +4,8 @@
 > `Fase 2/flujos_atencion.puml` (FL-02–04), `Fase 2/flujos_operacion.puml`
 > (FL-05–07) y `Fase 2/flujos_gestion.puml` (FL-08, FL-09 + secundarios);
 > este documento detalla el paso a paso. Cada flujo usa solo páginas V-xx
-> del sitemap y roles de Fase 1 §8.4. Ningún rol ejecuta una acción que su
-> CU no le asigna. Pendientes P-01/P-02/P-03 y reglas §§6.5/7.8 se marcan
+> del sitemap y roles de Fase 1 Sección 8.4. Ningún rol ejecuta una acción que su
+> CU no le asigna. Pendientes P-01/P-02/P-03 y reglas Sección 6.5/7.8 se marcan
 > donde aparecen.
 
 ## Cómo leer cada ficha
@@ -67,7 +67,7 @@
 - **Pasos:**
   1. Busca y selecciona cliente → [Agregar vehículo] → V-05b.
   2. Ingresa marca, modelo, año, placa y demás → [Guardar].
-  3. Sistema valida (placa única **[Propuesta/pendiente]** — §7.8 n.º 5) →
+  3. Sistema valida (placa única **[Propuesta/pendiente]** — Sección 7.8 n.º 5) →
      V-05c Detalle vinculado al cliente.
   4. En V-05c: pestaña Historial lista sus órdenes (RF-12); [Crear orden] → FL-04.
 - **Alternos:** A1 consulta directa V-05a sin registrar. A2 historial vacío →
@@ -103,7 +103,7 @@
   1. Técnico → V-08a filtra "Mis asignadas" o busca → selecciona → V-08c.
   2. Registra/actualiza diagnóstico (RF-16) + agrega/actualiza tareas.
   3. Cambia estado (RF-17: Recibido/En reparación/Listo — catálogo
-     **[Pendiente]** §6.5 n.º 4) → [Guardar].
+     **[Pendiente]** Sección 6.5 n.º 4) → [Guardar].
   4. Sistema valida (transición y cierre sin diagnóstico **[Pendiente]**
      CU-08 E2) → V-08c actualizado.
   5. Desde V-08c: [Cobrar] → FL-07; [Registrar salida] → FL-06 (asociada).
@@ -130,7 +130,7 @@
   informa disponible. E3 producto inexistente/desactivado → no registra.
 - **Fin:** stock actualizado; aviso emitido cuando aplica.
 - **Nota CU-09:** crear/editar producto (V-09a → V-09b, RF-19, stock inicial y
-  mínimo) es paso previo independiente, sin escenario propio (matriz §C).
+  mínimo) es paso previo independiente, sin escenario propio (matriz Sección C).
 
 ## FL-07 — Registrar cobro y generar factura interna
 
@@ -151,17 +151,17 @@
 - **Errores:** E1 sobrepago (pendiente, ver arriba). E2 orden sin total/inexistente
   → no registra. E3 sin método → pide completarlo.
 - **Fin:** pago registrado, saldo actualizado; factura asociada cuando se genera.
-  Fuera de alcance: bancos y facturación gubernamental (§1.5).
+  Fuera de alcance: bancos y facturación gubernamental (Sección 1.5).
 
 ## FL-08 — Gestionar citas
 
 - **Primario:** Recepcionista. **Secundario:** Admin.
-- **Refs:** RF-26–RF-28 / CU-06 (sin escenario dedicado — matriz §C).
+- **Refs:** RF-26–RF-28 / CU-06 (sin escenario dedicado — matriz Sección C).
 - **Inicio:** V-07a Agenda. **Precondición:** cliente/vehículo (+servicio opcional) existen.
 - **Pasos:**
   1. → V-07a consulta agenda del día/filtros (RF-28).
   2. [Agendar] → V-07b: cliente + vehículo + servicio (opcional **[Pendiente]**
-     §7.8 n.º 7) + fecha/hora → [Guardar].
+     Sección 7.8 n.º 7) + fecha/hora → [Guardar].
   3. Sistema valida (futura, sin traslape — regla **[Pendiente]** CU-06 E1) →
      confirma → V-07a actualizada.
   4. Editar/reprogramar o [Cancelar] (con confirmación, RF-27) → agenda actualizada.
@@ -185,14 +185,14 @@
      [Generar].
   2. Sistema valida parámetros (E1) → V-11b muestra reporte.
   3. Sin datos → "Sin datos para estos filtros. [Ajustar filtros]" (E2).
-  4. Exportación (PDF/CSV) **[Pendiente]** §6.5 n.º 10: no se promete; solo ver.
+  4. Exportación (PDF/CSV) **[Pendiente]** Sección 6.5 n.º 10: no se promete; solo ver.
 - **Fin:** visión general obtenida; reporte visible con criterios aplicados.
 
 ## Flujos secundarios (cubiertos sin ficha extendida)
 
 - **CU-02 Gestionar usuarios y roles (V-03, RF-01/03/04):** Admin → V-03a →
   V-03b (crear/editar + rol) → valida (correo único, rol válido) → confirma.
-  Sin escenario (matriz §C). Incluido en wireframes WF-12 y prototipo.
+  Sin escenario (matriz Sección C). Incluido en wireframes WF-12 y prototipo.
 - **CU-05 Catálogo de servicios (V-06, RF-24/25):** Admin → V-06a → V-06b
   (nombre + descripción + precio) → valida (precio > 0) → disponible para citas/órdenes.
   Responsable **[Pendiente P-02]**. Sin escenario. WF-12 + prototipo.

@@ -25,7 +25,7 @@
 <text x="56" y="438" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Éxito: "Pago registrado. Saldo: S/ …" (A1 parcial / A2 total).</text>
 <text x="56" y="462" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Pestañas V-10b: Ingresos | Gastos — concepto (*), monto (&gt; 0), fecha. Sin vínculo a orden.</text>
 <text x="56" y="486" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">V-10c Factura: [Generar] exige cobro (E1) · consecutivo único · [Reimprimir]. 0..1 y moneda [P].</text>
-<text x="56" y="510" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Interna simple; sin bancos ni facturación gubernamental (§1.5).</text>
+<text x="56" y="510" font-family="Arial,sans-serif" font-size="12" text-anchor="start" fill="#555">Interna simple; sin bancos ni facturación gubernamental (Sección 1.5).</text>
 <text x="24" y="37" font-family="Arial,sans-serif" font-size="26" fill="#fff" font-weight="bold">WF-09 · Finanzas: cobro, ingresos/gastos, factura (V-10a–c)</text>
 <text x="24" y="86" font-family="Arial,sans-serif" font-size="12" fill="#555">RF-29–33 / CU-11, CU-12, CU-13 / Esc-6  ·  Datos ficticios</text>
 </svg>

@@ -32,4 +32,4 @@ como XML bien formado, PNG con firma y dimensiones verificadas.
 Cobertura: 13/13 wireframes documentados están representados (13 SVG + 13 PNG,
 ninguna pantalla omitida). WF-03 y WF-04 son patrones compartidos: cada imagen
 lo indica en su banda informativa y esta tabla lista las vistas que cubren,
-tal como `wireframes.md` §§WF-03/WF-04 y la tabla de cobertura WF → V.
+tal como `wireframes.md` Sección WF-03/WF-04 y la tabla de cobertura WF → V.

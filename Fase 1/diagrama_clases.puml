@@ -139,8 +139,8 @@ Rol "1" -- "*" Usuario : asigna >
 Cliente "1" -- "*" Vehiculo : posee >
 
 ' Orden: referencia a su cliente y a su vehículo (RF-14, CU-07).
-' Invariante documentado en §7.6: el vehículo de la orden debe
-' pertenecer al cliente de la orden (por confirmar, ver §7.8).
+' Invariante documentado en Sección 7.6: el vehículo de la orden debe
+' pertenecer al cliente de la orden (por confirmar, ver Sección 7.8).
 Cliente "1" -- "0..*" OrdenReparacion : solicita >
 Vehiculo "1" -- "0..*" OrdenReparacion : ingresa_por >
 
@@ -168,11 +168,11 @@ OrdenReparacion "1" -- "0..*" MovimientoInventario : consume_en_salida >
 ' Finanzas de la orden (RF-29/RF-30/RF-33, CU-11/CU-13).
 OrdenReparacion "1" -- "*" Pago : salda_con >
 ' Como máximo una factura interna por orden (supuesto por
-' confirmar, ver §7.8).
+' confirmar, ver Sección 7.8).
 OrdenReparacion "1" -- "0..1" FacturaInterna : factura >
 
 note bottom of FacturaInterna
-  Decisiones de modelado (ver §7.7 y §7.8):
+  Decisiones de modelado (ver Sección 7.7 y Sección 7.8):
   - Reportes (CU-14) y dashboard (CU-15) son
     vistas derivadas, no clases.
   - Actores, páginas UI e infraestructura no

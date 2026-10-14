@@ -1,18 +1,18 @@
 # Matriz de trazabilidad — TalleresPro Fase 1 (Deliverable 9)
 
-Fuente de IDs y redacción: `Fase 1/README_Fase_1.md` (§§1–8), `diagrama_casos_uso.puml`, `diagrama_clases.puml`, `diagrama_navegacion.puml`. No se crean identificadores, requisitos ni relaciones nuevas. La trazabilidad describe relaciones en la documentación; no prueba implementación ni pruebas del software.
+Fuente de IDs y redacción: `Fase 1/README_Fase_1.md` (Sección 1–8), `diagrama_casos_uso.puml`, `diagrama_clases.puml`, `diagrama_navegacion.puml`. No se crean identificadores, requisitos ni relaciones nuevas. La trazabilidad describe relaciones en la documentación; no prueba implementación ni pruebas del software.
 
 ## 0. Notación
 
-* **●** primario: ejecuta, inicia o es responsable. **◐** secundario / solo lectura / uso parcial. **—** sin relación documentada. **P** pendiente de confirmación (ver §8.7 de este archivo y §§6.5/7.8/8.7 del documento).
+* **●** primario: ejecuta, inicia o es responsable. **◐** secundario / solo lectura / uso parcial. **—** sin relación documentada. **P** pendiente de confirmación (ver Sección 8.7 de este archivo y Sección 6.5/7.8/8.7 del documento).
 * Escenarios (nombres exactos del documento): **Esc-1** Registrar un cliente · **Esc-2** Registrar un vehículo · **Esc-3** Crear una orden de reparación · **Esc-4** Actualizar una reparación · **Esc-5** Registrar salida de inventario · **Esc-6** Registrar un pago · **Esc-7** Consultar el dashboard.
 * Estado de trazabilidad: **Trazado** (cadena completa) · **Parcial** (falta escenario u otro eslabón) · **Pendiente** (decisión del equipo bloquea la confirmación).
-* Clases (§7): Rol, Usuario, Cliente, Vehiculo, Servicio, OrdenReparacion, DetalleOrden, Tarea, Cita, Producto, MovimientoInventario, Pago, Ingreso, Gasto, FacturaInterna.
-* Vistas (§8): V-01 Login · V-02 Dashboard · V-03 Usuarios · V-04 Clientes · V-05 Vehículos · V-06 Servicios · V-07 Citas · V-08 Órdenes · V-09 Inventario · V-10 Finanzas · V-11 Reportes.
+* Clases (Sección 7): Rol, Usuario, Cliente, Vehiculo, Servicio, OrdenReparacion, DetalleOrden, Tarea, Cita, Producto, MovimientoInventario, Pago, Ingreso, Gasto, FacturaInterna.
+* Vistas (Sección 8): V-01 Login · V-02 Dashboard · V-03 Usuarios · V-04 Clientes · V-05 Vehículos · V-06 Servicios · V-07 Citas · V-08 Órdenes · V-09 Inventario · V-10 Finanzas · V-11 Reportes.
 
 ## A. Objetivo → requisitos
 
-Objetivo general documentado (§1.4, texto exacto): *"Desarrollar un sistema web que permita gestionar de manera centralizada las principales operaciones de un taller de reparación y mantenimiento, facilitando el seguimiento de las reparaciones, el control de inventario y la administración de la información financiera."* No existen sub-objetivos numerados. Las filas TEMP-Ox son identificadores temporales de organización (no requisitos nuevos) para cada pilar del propio objetivo.
+Objetivo general documentado (Sección 1.4, texto exacto): *"Desarrollar un sistema web que permita gestionar de manera centralizada las principales operaciones de un taller de reparación y mantenimiento, facilitando el seguimiento de las reparaciones, el control de inventario y la administración de la información financiera."* No existen sub-objetivos numerados. Las filas TEMP-Ox son identificadores temporales de organización (no requisitos nuevos) para cada pilar del propio objetivo.
 
 | Objetivo (temporal) | RF que lo soportan | RNF transversales |
 |---|---|---|
@@ -72,7 +72,7 @@ Objetivo general documentado (§1.4, texto exacto): *"Desarrollar un sistema web
 | RNF-02 Formularios y mensajes | Transversal; todas las vistas con formulario |
 | RNF-03 Navegación consistente | Transversal; V-01–V-11 |
 | RNF-04 Funciones sensibles con login | Todos los roles; CU-01 precondición |
-| RNF-05 Restricción por rol | Usuario + Rol; matriz §8.4 |
+| RNF-05 Restricción por rol | Usuario + Rol; matriz Sección 8.4 |
 | RNF-06 Contraseñas seguras | Usuario (hash, nunca en claro) |
 | RNF-07 Rendimiento razonable | Transversal; sin métrica (pendiente de cuantificar) |
 | RNF-08 Chrome/Edge/Firefox | Transversal; sin clase asociada |
@@ -83,7 +83,7 @@ Objetivo general documentado (§1.4, texto exacto): *"Desarrollar un sistema web
 
 ## C. RF → escenarios y casos de uso
 
-Base verificada: §6.4. Escenario presente solo cuando el flujo documentado lo recorre; en otro caso se marca **—** (cubierto por su CU, sin escenario). Ningún RF queda sin CU.
+Base verificada: Sección 6.4. Escenario presente solo cuando el flujo documentado lo recorre; en otro caso se marca **—** (cubierto por su CU, sin escenario). Ningún RF queda sin CU.
 
 | RF | Escenarios | CU | Estado |
 |---|---|---|---|
@@ -147,9 +147,9 @@ Conteo: **RF con clase 38/38** (RF-37/38 solo lectura, ver nota).
 
 ## D2. RNF → clases/componentes
 
-RNF-05 → Usuario, Rol (+ vistas §8.4). RNF-06 → Usuario. RNF-10 → Cliente, Vehiculo, OrdenReparacion, Producto y asociados. RNF-01–RNF-04, RNF-07–RNF-09, RNF-11 → transversales (vistas/formularios), sin clase directa única. RNF-12 → implementación, sin clase de dominio. Explicación: los RNF de calidad/compatibilidad no se trazan a una clase porque describen comportamiento global, no responsabilidad de una entidad.
+RNF-05 → Usuario, Rol (+ vistas Sección 8.4). RNF-06 → Usuario. RNF-10 → Cliente, Vehiculo, OrdenReparacion, Producto y asociados. RNF-01–RNF-04, RNF-07–RNF-09, RNF-11 → transversales (vistas/formularios), sin clase directa única. RNF-12 → implementación, sin clase de dominio. Explicación: los RNF de calidad/compatibilidad no se trazan a una clase porque describen comportamiento global, no responsabilidad de una entidad.
 
-## E. RF → vistas (ver §8.3/§8.6)
+## E. RF → vistas (ver Sección 8.3/Sección 8.6)
 
 | RF | Vistas | Nota |
 |---|---|---|
@@ -185,16 +185,16 @@ Conteo: **RF con vista 38/38**; RF-22/RF-23/RF-30 son reglas de fondo que la vis
 | Inventario | 19–23 | Inventario (+Admin lee) | Esc-5 (salida) | 09, 10 | Producto, Movimiento | V-09, V-02 | Parcial |
 | Servicios/Citas | 24–28 | Admin (catálogo); Recep (citas) | — | 05, 06 | Servicio, Cita | V-06, V-07 | Parcial |
 | Finanzas | 29–33 | Administrativo (+Admin lee) | Esc-6 (cobro) | 11, 12, 13 | Pago, Ingreso, Gasto, Factura, Orden | V-10 | Parcial |
-| Reportes/Dashboard | 34–38 | Admin + Admvo (reportes); Admin (panel) | Esc-7 (panel) | 14, 15 | Insumos §D1; sin clase propia | V-11, V-02 | Parcial |
+| Reportes/Dashboard | 34–38 | Admin + Admvo (reportes); Admin (panel) | Esc-7 (panel) | 14, 15 | Insumos Sección D1; sin clase propia | V-11, V-02 | Parcial |
 
 ## G. Huecos y trazabilidad débil (reportados, no ocultos)
 
 1. Sin escenario dedicado (24 RF): RF-01–04, 06–08, 10–12, 19, 20, 23–28, 31–36. Todos tienen CU + clase + vista; el hueco es solo de escenificación.
 2. Reglas de fondo sin vista propia: RF-22 (cálculo), RF-23 (aviso derivado V-09d), RF-30 (saldo derivado). Trazadas a la vista que las muestra.
-3. Lectura sin gestión: RF-12 para el Técnico (vía CU-08), RF-18/RF-23/V-09M/V-10* para roles secundarios (§B1). Marcadas ◐, no ●.
-4. RNF sin clase directa (§D2): calidad/compatibilidad transversales; RNF-07 sin métrica.
-5. Sin requisitos huérfanos: **0 RF sin CU, 0 RF sin clase, 0 RF sin vista**. Sin clases sin RF (todas en §7.3). Sin vistas sin CU/RF (§8.6).
+3. Lectura sin gestión: RF-12 para el Técnico (vía CU-08), RF-18/RF-23/V-09M/V-10* para roles secundarios (Sección B1). Marcadas ◐, no ●.
+4. RNF sin clase directa (Sección D2): calidad/compatibilidad transversales; RNF-07 sin métrica.
+5. Sin requisitos huérfanos: **0 RF sin CU, 0 RF sin clase, 0 RF sin vista**. Sin clases sin RF (todas en Sección 7.3). Sin vistas sin CU/RF (Sección 8.6).
 
-## H. Decisiones pendientes que afectan la trazabilidad (§§6.5/7.8/8.7 vigentes)
+## H. Decisiones pendientes que afectan la trazabilidad (Sección 6.5/7.8/8.7 vigentes)
 
 P-02 (gestión de V-06 por Recepcionista) afecta a RF-24/25 ◐; P-01 (punto de partida) afecta a V-02 para no administradores; P-03 (edición de V-08D por Admin) afecta a RF-16/17 ◐; cardinalidad de factura (0..1 propuesta), fórmula del total y sobrepago afectan a RF-30/33; transiciones de estado afectan a RF-17; traslapes y estados de cita afectan a RF-26–28; unicidades y permisos finos afectan a RF-04 y validaciones. Nada se resolvió aquí: las celdas P permanecen pendientes.
