@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resultado del reporte · TalleresPro</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app" data-modulo="reportes" data-vista="reportes-resultado" data-menu="reportes">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cabecera">
+<button type="button" class="btn-menu" id="btn-menu" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="marca" href="dashboard.html"><span class="marca-icono"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.5 17.3a1.9 1.9 0 0 0 2.7 2.7l5.8-5.8a4 4 0 0 0 5.2-5.4l-2.4 2.4-2.1-.5-.5-2.1z"/></svg></span>TalleresPro</a>
+<p class="usuario">
+<span class="usuario-datos"><span class="usuario-nombre" id="usuario-nombre"></span><span class="usuario-rol" id="usuario-rol"></span></span>
+<a class="btn btn-secundario btn-pequeno" href="login.html" id="btn-salir">Salir</a>
+</p>
+</header>
+<nav class="menu" id="menu-principal" aria-label="Navegación principal"><ul class="menu-lista"><li class="menu-grupo"><p class="menu-titulo" id="mg0">Principal</p><ul aria-labelledby="mg0"><li><a href="dashboard.html" data-modulo="dashboard">Dashboard</a></li><li><a href="ordenes.html" data-modulo="ordenes">Órdenes</a></li><li><a href="citas.html" data-modulo="citas">Citas</a></li></ul></li><li class="menu-grupo"><p class="menu-titulo" id="mg1">Registros</p><ul aria-labelledby="mg1"><li><a href="clientes.html" data-modulo="clientes">Clientes</a></li><li><a href="vehiculos.html" data-modulo="vehiculos">Vehículos</a></li><li><a href="servicios.html" data-modulo="servicios">Servicios</a></li></ul></li><li class="menu-grupo"><p class="menu-titulo" id="mg2">Recursos</p><ul aria-labelledby="mg2"><li><a href="inventario.html" data-modulo="inventario">Inventario</a></li><li><a href="finanzas.html" data-modulo="finanzas">Finanzas</a></li></ul></li><li class="menu-grupo"><p class="menu-titulo" id="mg3">Gestión</p><ul aria-labelledby="mg3"><li><a href="reportes.html" data-modulo="reportes">Reportes</a></li><li><a href="usuarios.html" data-modulo="usuarios">Usuarios</a></li></ul></li></ul></nav>
+<main id="contenido" tabindex="-1">
+<nav class="migas" aria-label="Migas de pan"><ol><li><a href="reportes.html">Reportes</a></li><li><span aria-current="page" id="miga-actual">Resultado</span></li></ol></nav>
+<div id="avisos" role="status" aria-live="polite"></div>
+<header class="pagina-cabecera"><hgroup><h1 id="titulo-pagina"><span id="rep-titulo">Reporte</span></h1><p><span id="rep-criterios"></span></p></hgroup><p class="acciones"><a class="btn btn-secundario" href="reportes.html">Ajustar filtros</a></p></header><div class="tabla-contenedor" id="tabla"></div>
+</main>
+<div class="menu-fondo" id="menu-fondo" aria-hidden="true" hidden></div>
+<script src="js/datos.js"></script><script src="js/sesion.js"></script><script src="js/ui.js"></script><script src="js/layout.js"></script><script src="js/vistas/reportes.js"></script>
+</body>
+</html>
