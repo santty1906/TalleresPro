@@ -1,4 +1,4 @@
-/* Vista V-02 — Dashboard */
+s/vistas//* Vista V-02 — Dashboard */
 
 /* Suma el campo "monto" de una lista de registros */
 function sumarMontos(lista) {
