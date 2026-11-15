@@ -1,4 +1,4 @@
-/* TalleresPro — estructura general: cabecera, menú lateral, contenido */
+ss//* TalleresPro — estructura general: cabecera, menú lateral, contenido */
 .app {
   display: grid;
   grid-template-columns: 264px minmax(0, 1fr);
