@@ -1,4 +1,4 @@
-/* Vistas V-09 — Inventario: lista, producto, movimientos y aviso de stock bajo */
+s/vistas//* Vistas V-09 — Inventario: lista, producto, movimientos y aviso de stock bajo */
 
 /* Html de la etiqueta "Bajo stock" o "Stock normal" */
 function estadoStock(producto) {
