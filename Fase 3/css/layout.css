@@ -1,0 +1,140 @@
+ss//* TalleresPro — estructura general: cabecera, menú lateral, contenido */
+.app {
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  grid-template-rows: 60px minmax(0, 1fr);
+  grid-template-areas: "cabecera cabecera" "menu contenido";
+  min-height: 100vh;
+}
+
+.cabecera :focus-visible, .acceso-lado :focus-visible { outline-color: #fff; }
+
+.cabecera {
+  grid-area: cabecera;
+  position: sticky; top: 0; z-index: 40;
+  display: flex; align-items: center; gap: .75rem;
+  padding: 0 1.25rem;
+  background: var(--grafito);
+  color: #fff;
+}
+
+.marca {
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: #fff; text-decoration: none;
+  font-weight: 700; font-size: 1.15rem; letter-spacing: -.01em;
+}
+.marca:hover { color: #fff; }
+.marca-icono {
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  background: var(--acento); border-radius: 9px;
+}
+.marca-icono svg { width: 20px; height: 20px; }
+
+.btn-menu {
+  display: none;
+  width: 44px; height: 44px;
+  border: 0; border-radius: var(--radio-sm);
+  background: transparent; color: #fff; cursor: pointer;
+}
+.btn-menu:hover { background: var(--grafito-2); }
+.btn-menu svg { width: 24px; height: 24px; }
+
+.usuario {
+  margin: 0 0 0 auto;
+  display: flex; align-items: center; gap: .75rem;
+}
+.usuario-datos { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.2; }
+.usuario-nombre { font-weight: 600; font-size: .95rem; }
+.usuario-rol { font-size: .8rem; color: #cbd5e1; }
+
+.menu {
+  grid-area: menu;
+  background: var(--superficie);
+  border-right: 1px solid var(--borde);
+  padding: 1.25rem .85rem 2rem;
+  overflow-y: auto;
+}
+.menu-lista { list-style: none; margin: 0; padding: 0; }
+.menu-grupo + .menu-grupo { margin-top: 1.4rem; }
+.menu-titulo {
+  padding: 0 .75rem .4rem;
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.menu ul { list-style: none; margin: 0; padding: 0; }
+.menu a {
+  display: flex; align-items: center;
+  min-height: 42px; padding: .45rem .75rem;
+  border-radius: var(--radio-sm);
+  border-left: 3px solid transparent;
+  color: var(--tinta); text-decoration: none; font-weight: 500;
+}
+.menu a:hover { background: #f3efe8; color: var(--tinta); }
+.menu a[aria-current="page"] {
+  background: var(--acento-tenue);
+  border-left-color: var(--acento);
+  color: var(--acento-oscuro);
+  font-weight: 650;
+}
+
+.menu-fondo {
+  position: fixed; inset: 0; z-index: 45;
+  background: rgba(15, 23, 32, .5);
+}
+
+main {
+  grid-area: contenido;
+  min-width: 0;
+  padding: 1.5rem 2rem 3rem;
+}
+main:focus { outline: none; }
+
+.migas { margin-bottom: 1rem; }
+.migas ol {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .25rem;
+  font-size: .9rem; color: var(--tinta-suave);
+}
+.migas li + li::before { content: "›"; margin-right: .35rem; color: var(--borde-fuerte); }
+.migas a { color: var(--tinta-suave); }
+.migas a:hover { color: var(--acento-oscuro); }
+.migas [aria-current="page"] { color: var(--tinta); font-weight: 600; }
+
+.pagina-cabecera {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: .75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.pagina-cabecera hgroup p { color: var(--tinta-suave); margin-top: .25rem; }
+.acciones { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+.contenido-estrecho { max-width: 760px; }
+/* Separación vertical entre bloques directos de la página (sin contenedores extra) */
+main > :is(section, form, article, dl, p.relacionados):not(:first-child) { margin-top: 1.25rem; }
+main > section.vacio { margin-top: 0; }
+.rejilla { display: grid; gap: 1.25rem; }
+.rejilla-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pila > * + * { margin-top: 1.25rem; }
+form.pila { display: block; }
+
+/* Pantalla de acceso */
+.acceso {
+  min-height: 100vh;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.acceso-lado {
+  background: var(--grafito); color: #fff;
+  padding: 3rem; display: flex; flex-direction: column; justify-content: space-between;
+  background-image:
+    radial-gradient(circle at 85% 15%, rgba(194, 65, 12, .35), transparent 45%),
+    linear-gradient(160deg, var(--grafito), #0f1720);
+}
+.acceso-lado h2 { font-size: 1.9rem; max-width: 16ch; margin-top: 2rem; }
+.acceso-lado p { color: #e2e8f0; max-width: 38ch; margin-top: 1rem; }
+.acceso-lado .marca { font-size: 1.3rem; }
+.acceso-panel { grid-area: auto; display: grid; place-items: center; padding: 2rem 1.25rem; }
+.acceso-caja { width: 100%; max-width: 400px; }
+.acceso-caja h1 { margin-bottom: .35rem; }
+.acceso-caja form { margin-top: 1.5rem; }
