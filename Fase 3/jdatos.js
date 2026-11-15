@@ -1,4 +1,4 @@
-/* TalleresPro — datos de ejemplo (Fase 3: todavía no hay base de datos).
+s//* TalleresPro — datos de ejemplo (Fase 3: todavía no hay base de datos).
    En la Fase 4 estos arreglos se reemplazan por consultas a MySQL. */
 
 /* Fecha "de hoy" fija para que los ejemplos siempre se vean igual */
