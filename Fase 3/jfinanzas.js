@@ -1,4 +1,4 @@
-/* Vistas V-10 — Finanzas: ingresos y gastos, cobro de órdenes y factura interna */
+s/vistas//* Vistas V-10 — Finanzas: ingresos y gastos, cobro de órdenes y factura interna */
 
 /* Suma el campo "monto" de una lista de registros */
 function sumarMontos(lista) {
